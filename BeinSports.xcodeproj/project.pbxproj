@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		149FAEB529FFED7200A9C741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FAEB429FFED7200A9C741 /* AppDelegate.swift */; };
+		149FAEB729FFED7200A9C741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FAEB629FFED7200A9C741 /* SceneDelegate.swift */; };
+		149FAEB929FFED7200A9C741 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FAEB829FFED7200A9C741 /* ViewController.swift */; };
+		149FAEBC29FFED7200A9C741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149FAEBA29FFED7200A9C741 /* Main.storyboard */; };
+		149FAEBF29FFED7200A9C741 /* BeinSports.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 149FAEBD29FFED7200A9C741 /* BeinSports.xcdatamodeld */; };
+		149FAEC129FFED7400A9C741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149FAEC029FFED7400A9C741 /* Assets.xcassets */; };
+		149FAEC429FFED7400A9C741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149FAEC229FFED7400A9C741 /* LaunchScreen.storyboard */; };
+		149FAECF29FFED7400A9C741 /* BeinSportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FAECE29FFED7400A9C741 /* BeinSportsTests.swift */; };
+		149FAED929FFED7400A9C741 /* BeinSportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FAED829FFED7400A9C741 /* BeinSportsUITests.swift */; };
+		149FAEDB29FFED7400A9C741 /* BeinSportsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FAEDA29FFED7400A9C741 /* BeinSportsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		149FAECB29FFED7400A9C741 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 149FAEA929FFED7200A9C741 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 149FAEB029FFED7200A9C741;
+			remoteInfo = BeinSports;
+		};
+		149FAED529FFED7400A9C741 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 149FAEA929FFED7200A9C741 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 149FAEB029FFED7200A9C741;
+			remoteInfo = BeinSports;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		149FAEB129FFED7200A9C741 /* BeinSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeinSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		149FAEB429FFED7200A9C741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		149FAEB629FFED7200A9C741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		149FAEB829FFED7200A9C741 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		149FAEBB29FFED7200A9C741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		149FAEBE29FFED7200A9C741 /* BeinSports.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BeinSports.xcdatamodel; sourceTree = "<group>"; };
+		149FAEC029FFED7400A9C741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		149FAEC329FFED7400A9C741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		149FAEC529FFED7400A9C741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		149FAECA29FFED7400A9C741 /* BeinSportsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeinSportsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		149FAECE29FFED7400A9C741 /* BeinSportsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeinSportsTests.swift; sourceTree = "<group>"; };
+		149FAED429FFED7400A9C741 /* BeinSportsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeinSportsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		149FAED829FFED7400A9C741 /* BeinSportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeinSportsUITests.swift; sourceTree = "<group>"; };
+		149FAEDA29FFED7400A9C741 /* BeinSportsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeinSportsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		149FAEAE29FFED7200A9C741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149FAEC729FFED7400A9C741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149FAED129FFED7400A9C741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		149FAEA829FFED7200A9C741 = {
+			isa = PBXGroup;
+			children = (
+				149FAEB329FFED7200A9C741 /* BeinSports */,
+				149FAECD29FFED7400A9C741 /* BeinSportsTests */,
+				149FAED729FFED7400A9C741 /* BeinSportsUITests */,
+				149FAEB229FFED7200A9C741 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		149FAEB229FFED7200A9C741 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				149FAEB129FFED7200A9C741 /* BeinSports.app */,
+				149FAECA29FFED7400A9C741 /* BeinSportsTests.xctest */,
+				149FAED429FFED7400A9C741 /* BeinSportsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		149FAEB329FFED7200A9C741 /* BeinSports */ = {
+			isa = PBXGroup;
+			children = (
+				149FAEB429FFED7200A9C741 /* AppDelegate.swift */,
+				149FAEB629FFED7200A9C741 /* SceneDelegate.swift */,
+				149FAEB829FFED7200A9C741 /* ViewController.swift */,
+				149FAEBA29FFED7200A9C741 /* Main.storyboard */,
+				149FAEC029FFED7400A9C741 /* Assets.xcassets */,
+				149FAEC229FFED7400A9C741 /* LaunchScreen.storyboard */,
+				149FAEC529FFED7400A9C741 /* Info.plist */,
+				149FAEBD29FFED7200A9C741 /* BeinSports.xcdatamodeld */,
+			);
+			path = BeinSports;
+			sourceTree = "<group>";
+		};
+		149FAECD29FFED7400A9C741 /* BeinSportsTests */ = {
+			isa = PBXGroup;
+			children = (
+				149FAECE29FFED7400A9C741 /* BeinSportsTests.swift */,
+			);
+			path = BeinSportsTests;
+			sourceTree = "<group>";
+		};
+		149FAED729FFED7400A9C741 /* BeinSportsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				149FAED829FFED7400A9C741 /* BeinSportsUITests.swift */,
+				149FAEDA29FFED7400A9C741 /* BeinSportsUITestsLaunchTests.swift */,
+			);
+			path = BeinSportsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		149FAEB029FFED7200A9C741 /* BeinSports */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149FAEDE29FFED7400A9C741 /* Build configuration list for PBXNativeTarget "BeinSports" */;
+			buildPhases = (
+				149FAEAD29FFED7200A9C741 /* Sources */,
+				149FAEAE29FFED7200A9C741 /* Frameworks */,
+				149FAEAF29FFED7200A9C741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeinSports;
+			productName = BeinSports;
+			productReference = 149FAEB129FFED7200A9C741 /* BeinSports.app */;
+			productType = "com.apple.product-type.application";
+		};
+		149FAEC929FFED7400A9C741 /* BeinSportsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149FAEE129FFED7400A9C741 /* Build configuration list for PBXNativeTarget "BeinSportsTests" */;
+			buildPhases = (
+				149FAEC629FFED7400A9C741 /* Sources */,
+				149FAEC729FFED7400A9C741 /* Frameworks */,
+				149FAEC829FFED7400A9C741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				149FAECC29FFED7400A9C741 /* PBXTargetDependency */,
+			);
+			name = BeinSportsTests;
+			productName = BeinSportsTests;
+			productReference = 149FAECA29FFED7400A9C741 /* BeinSportsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		149FAED329FFED7400A9C741 /* BeinSportsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149FAEE429FFED7400A9C741 /* Build configuration list for PBXNativeTarget "BeinSportsUITests" */;
+			buildPhases = (
+				149FAED029FFED7400A9C741 /* Sources */,
+				149FAED129FFED7400A9C741 /* Frameworks */,
+				149FAED229FFED7400A9C741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				149FAED629FFED7400A9C741 /* PBXTargetDependency */,
+			);
+			name = BeinSportsUITests;
+			productName = BeinSportsUITests;
+			productReference = 149FAED429FFED7400A9C741 /* BeinSportsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		149FAEA929FFED7200A9C741 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					149FAEB029FFED7200A9C741 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					149FAEC929FFED7400A9C741 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 149FAEB029FFED7200A9C741;
+					};
+					149FAED329FFED7400A9C741 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 149FAEB029FFED7200A9C741;
+					};
+				};
+			};
+			buildConfigurationList = 149FAEAC29FFED7200A9C741 /* Build configuration list for PBXProject "BeinSports" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 149FAEA829FFED7200A9C741;
+			productRefGroup = 149FAEB229FFED7200A9C741 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				149FAEB029FFED7200A9C741 /* BeinSports */,
+				149FAEC929FFED7400A9C741 /* BeinSportsTests */,
+				149FAED329FFED7400A9C741 /* BeinSportsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		149FAEAF29FFED7200A9C741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149FAEC429FFED7400A9C741 /* LaunchScreen.storyboard in Resources */,
+				149FAEC129FFED7400A9C741 /* Assets.xcassets in Resources */,
+				149FAEBC29FFED7200A9C741 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149FAEC829FFED7400A9C741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149FAED229FFED7400A9C741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		149FAEAD29FFED7200A9C741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149FAEBF29FFED7200A9C741 /* BeinSports.xcdatamodeld in Sources */,
+				149FAEB929FFED7200A9C741 /* ViewController.swift in Sources */,
+				149FAEB529FFED7200A9C741 /* AppDelegate.swift in Sources */,
+				149FAEB729FFED7200A9C741 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149FAEC629FFED7400A9C741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149FAECF29FFED7400A9C741 /* BeinSportsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149FAED029FFED7400A9C741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149FAED929FFED7400A9C741 /* BeinSportsUITests.swift in Sources */,
+				149FAEDB29FFED7400A9C741 /* BeinSportsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		149FAECC29FFED7400A9C741 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 149FAEB029FFED7200A9C741 /* BeinSports */;
+			targetProxy = 149FAECB29FFED7400A9C741 /* PBXContainerItemProxy */;
+		};
+		149FAED629FFED7400A9C741 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 149FAEB029FFED7200A9C741 /* BeinSports */;
+			targetProxy = 149FAED529FFED7400A9C741 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		149FAEBA29FFED7200A9C741 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				149FAEBB29FFED7200A9C741 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		149FAEC229FFED7400A9C741 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				149FAEC329FFED7400A9C741 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		149FAEDC29FFED7400A9C741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		149FAEDD29FFED7400A9C741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		149FAEDF29FFED7400A9C741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeinSports/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fathi.BeinSports;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		149FAEE029FFED7400A9C741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeinSports/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fathi.BeinSports;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		149FAEE229FFED7400A9C741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fathi.BeinSportsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeinSports.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeinSports";
+			};
+			name = Debug;
+		};
+		149FAEE329FFED7400A9C741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fathi.BeinSportsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeinSports.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeinSports";
+			};
+			name = Release;
+		};
+		149FAEE529FFED7400A9C741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fathi.BeinSportsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeinSports;
+			};
+			name = Debug;
+		};
+		149FAEE629FFED7400A9C741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fathi.BeinSportsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeinSports;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		149FAEAC29FFED7200A9C741 /* Build configuration list for PBXProject "BeinSports" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149FAEDC29FFED7400A9C741 /* Debug */,
+				149FAEDD29FFED7400A9C741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		149FAEDE29FFED7400A9C741 /* Build configuration list for PBXNativeTarget "BeinSports" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149FAEDF29FFED7400A9C741 /* Debug */,
+				149FAEE029FFED7400A9C741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		149FAEE129FFED7400A9C741 /* Build configuration list for PBXNativeTarget "BeinSportsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149FAEE229FFED7400A9C741 /* Debug */,
+				149FAEE329FFED7400A9C741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		149FAEE429FFED7400A9C741 /* Build configuration list for PBXNativeTarget "BeinSportsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149FAEE529FFED7400A9C741 /* Debug */,
+				149FAEE629FFED7400A9C741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		149FAEBD29FFED7200A9C741 /* BeinSports.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				149FAEBE29FFED7200A9C741 /* BeinSports.xcdatamodel */,
+			);
+			currentVersion = 149FAEBE29FFED7200A9C741 /* BeinSports.xcdatamodel */;
+			path = BeinSports.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 149FAEA929FFED7200A9C741 /* Project object */;
+}
