@@ -8,6 +8,8 @@ import SwiftUI
 class EventCVCell: UICollectionViewCell {
 
     @IBOutlet weak var awayImageE: UIImageView!
+    @IBOutlet weak var nameAwayLab: UILabel!
+    @IBOutlet weak var nameHomeLab: UILabel!
     @IBOutlet weak var homeImageE: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -21,6 +23,9 @@ class EventCVCell: UICollectionViewCell {
 //        homeImageE.layer.borderWidth = 1.5
 //        awayImageE.layer.borderWidth = 1.5
         // Initialization code
+        contentView.layer.cornerRadius = 20
+        contentView.layer.borderColor = Color.accentColor.cgColor
+        contentView.layer.borderWidth = 2
     }
 
 }

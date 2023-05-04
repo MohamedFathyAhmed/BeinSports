@@ -13,6 +13,8 @@ class ResultCVCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var homeImage: UIImageView!
+    @IBOutlet weak var homeNameLab: UILabel!
+    @IBOutlet weak var awayNameLab: UILabel!
     @IBOutlet weak var awayImage: UIImageView!
     
     override func awakeFromNib() {

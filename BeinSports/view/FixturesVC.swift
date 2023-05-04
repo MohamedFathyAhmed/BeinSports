@@ -68,7 +68,10 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCVCell", for: indexPath) as! EventCVCell
             cell.homeImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].home_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
             cell.awayImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].away_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
-            
+            cell.dateLabel.text = arrEvent[indexPath.row].event_date
+            cell.timeLabel.text = arrEvent[indexPath.row].event_time
+            cell.nameHomeLab.text = arrEvent[indexPath.row].event_home_team
+            cell.nameAwayLab.text = arrEvent[indexPath.row].event_away_team
             return cell
             
             
@@ -80,7 +83,10 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             cell.awayImage.sd_setImage(with: URL(string: arrResult[indexPath.row].event_away_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
             cell.homeImage.sd_setImage(with: URL(string: arrResult[indexPath.row].home_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
             cell.resultLabel.text = arrResult[indexPath.row].event_final_result
-            
+            cell.dateLabel.text = arrResult[indexPath.row].event_date
+            cell.awayNameLab.text=arrResult[indexPath.row].event_away_team
+            cell.timeLabel.text=arrResult[indexPath.row].event_time
+            cell.homeNameLab.text=arrResult[indexPath.row].event_home_team
             return cell
             
             
@@ -99,7 +105,7 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case eventCollection:
-            return CGSize(width: eventCollection.frame.width , height: eventCollection.frame.height )
+            return CGSize(width: eventCollection.frame.width  , height: eventCollection.frame.height )
         case resultsCollection:
             return CGSize(width: resultsCollection.frame.width , height: resultsCollection.frame.height )
         case teamsCollection:
@@ -154,7 +160,7 @@ extension FixturesVC{
              }
 
     func callResultApi() {
-        let param : [String: String] = ["met": "Livescore","leagueId":leagueId]//
+        let param : [String: String] = ["met": "Livescore"]//,"leagueId":leagueId
         APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: ResultsResult?, error) in
             self.arrResult=dataurl?.result ?? [Result]()
                    DispatchQueue.main.async {
@@ -175,13 +181,14 @@ extension FixturesVC{
              }
     func callHighlightApi(eventId  : Int) {
         var event = String(describing: eventId)
-       // event="1059523"
+        event="1059523"
         var param : [String: String] = ["met": "Videos","eventId":event]
         APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: videoResult?, error) in
             let res = dataurl?.result ?? [video]()
                    DispatchQueue.main.async {
-                       let videoURL = res.first?.video_url.asUrl
-                       self.playVideo(url:videoURL! as URL)
+                       if let videoURL = res.first?.video_url.asUrl{
+                           self.playVideo(url:videoURL)
+                       }
                    }
                }
              }

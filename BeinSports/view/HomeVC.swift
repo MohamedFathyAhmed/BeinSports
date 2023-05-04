@@ -10,7 +10,7 @@ import UIKit
 class HomeVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var sports = ["football","basketball","cricket","tennis","hockey","baseball","american-football"]
+    var sports = ["football","basketball","cricket","tennis"]
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
