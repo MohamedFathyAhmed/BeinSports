@@ -1,0 +1,6 @@
+framework module Pods_BeinSportsTests {
+  umbrella header "Pods-BeinSportsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
