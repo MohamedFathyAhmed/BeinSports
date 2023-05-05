@@ -14,8 +14,8 @@
             filePath = "BeinSports/view/LeaguesTableVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -402,6 +402,36 @@
                   endingLineNumber = "178"
                   offsetFromSymbolStart = "59">
                </Location>
+               <Location
+                  uuid = "7399F232-2140-40BF-81EC-B6629681F2F8 - 3e9be790bd43ee84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.FixturesVC.callHighlightApi(eventId: Swift.Int) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/FixturesVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "7399F232-2140-40BF-81EC-B6629681F2F8 - 3e9be790bd43ee84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.FixturesVC.callHighlightApi(eventId: Swift.Int) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/FixturesVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "59">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -448,6 +478,36 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "185"
                   endingLineNumber = "185"
+                  offsetFromSymbolStart = "646">
+               </Location>
+               <Location
+                  uuid = "2CB6F923-C4FF-4050-96B2-097785621DCD - 282a910aba839991"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;BeinSports.videoResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BeinSports.FixturesVC.callHighlightApi(eventId: Swift.Int) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/FixturesVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "190"
+                  endingLineNumber = "190"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  uuid = "2CB6F923-C4FF-4050-96B2-097785621DCD - 282a910aba839991"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;BeinSports.videoResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BeinSports.FixturesVC.callHighlightApi(eventId: Swift.Int) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/FixturesVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "190"
+                  endingLineNumber = "190"
                   offsetFromSymbolStart = "646">
                </Location>
             </Locations>
@@ -498,7 +558,53 @@
                   endingLineNumber = "184"
                   offsetFromSymbolStart = "179">
                </Location>
+               <Location
+                  uuid = "716D308C-19B2-41D6-AE0C-64C8FA2B439B - 282a910aba8399b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;BeinSports.videoResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BeinSports.FixturesVC.callHighlightApi(eventId: Swift.Int) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/FixturesVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "716D308C-19B2-41D6-AE0C-64C8FA2B439B - 282a910aba8399b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;BeinSports.videoResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BeinSports.FixturesVC.callHighlightApi(eventId: Swift.Int) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/FixturesVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "179">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0D3ED2A-5987-4DD7-B11C-313BD0AA6E7D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeinSports/view/LeaguesTableVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "LeaguesTableVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,8 +8,12 @@
 import UIKit
 import Alamofire
 import SDWebImage
-class LeaguesTableVC: UITableViewController {
+class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searcgBar: UISearchBar!
+    var searchActive : Bool = false
     var arrLeagues = [Result]()
+    var filtered=[Result]()
     var sport:String = "football"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,28 +33,98 @@ class LeaguesTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrLeagues.count
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(searchActive){
+            return filtered.count
+        }else{
+           return arrLeagues.count
+        }
+        
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         var data = Result()
+         if(searchActive){
+            data = filtered [indexPath.row]
+         }else{
+             data = arrLeagues [indexPath.row]
+         }
+         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
-        cell.countryLabel.text = arrLeagues[indexPath.row].country_name
-        cell.nameLabel.text = arrLeagues[indexPath.row].league_name
+        cell.countryLabel.text = data.country_name
+        cell.nameLabel.text = data.league_name
         
-        cell.imgView.sd_setImage(with: URL(string: arrLeagues[indexPath.row].league_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+        cell.imgView.sd_setImage(with: URL(string: data.league_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         var data = Result()
+         if(searchActive){
+            data = filtered [indexPath.row]
+         }else{
+             data = arrLeagues [indexPath.row]
+         }
+         
         let vc = storyboard?.instantiateViewController(withIdentifier: "FixturesVC" ) as! FixturesVC
-        vc.leagueId = String(describing: arrLeagues[indexPath.row].league_key!)
+        vc.leagueId = String(describing: data.league_key!)
         vc.sport=sport
         navigationController? .pushViewController(vc , animated : true )
     }
 }
+
+
+extension LeaguesTableVC :UISearchBarDelegate{
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+          searchActive = true
+      }
+
+      func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+          searchActive = false
+      }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+          searchActive = false;
+
+          searchBar.text = nil
+          searchBar.resignFirstResponder()
+          tableView.resignFirstResponder()
+          searchBar.showsCancelButton = false
+          tableView.reloadData()
+      }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = false
+        }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+                    return true
+        }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText == ""){
+            self.searchActive = false;
+            searchBar.showsCancelButton = false
+            tableView.reloadData()
+        }else {
+            self.searchActive = true;
+            searchBar.showsCancelButton = true
+            filtered = arrLeagues.filter({ Result in
+                return  Result.league_name!.lowercased().contains(searchText.lowercased())
+            })
+            tableView.reloadData()
+        }
+    }
+
+   
+    
+    
+    
+    
+}
+

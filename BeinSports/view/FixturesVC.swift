@@ -182,7 +182,7 @@ extension FixturesVC{
     func callHighlightApi(eventId  : Int) {
         var event = String(describing: eventId)
         event="1059523"
-        var param : [String: String] = ["met": "Videos","eventId":event]
+        let param : [String: String] = ["met": "Videos","eventId":event]
         APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: videoResult?, error) in
             let res = dataurl?.result ?? [video]()
                    DispatchQueue.main.async {
