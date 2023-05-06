@@ -35,10 +35,6 @@ class FixturesVC: UIViewController {
         protocolVar?.callTeamApi(sport: sport,leagueId: leagueId)
     }
     
-
-   
-   
-  
     
     
 }
@@ -157,7 +153,10 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             
         case teamsCollection:
             if(sport == "tennis"){
-                
+                let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerDetailsVC" ) as! PlayerDetailsVC
+                vc.sport=sport
+                vc.playerId = String(describing: arrTennisPlayer[indexPath.row].player_key!)
+                navigationController? .pushViewController(vc , animated : true )
             }else{
                 let vc = storyboard?.instantiateViewController(withIdentifier: "TeamDetailsVC" ) as! TeamDetailsVC
                 vc.sport=sport

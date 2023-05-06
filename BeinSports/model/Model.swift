@@ -58,16 +58,38 @@ struct Teams: Codable {
     var players: [Player]?
 }
 
+struct PlayerResult: Codable {
+    var success: Int
+    var result: [Player]
+}
+
 struct Player: Codable{
     var player_name: String?
     var player_type: String?
     var player_number: String?
     var player_image: String?
+    var team_name: String?
+    var player_goals: String?
+    var player_yellow_cards: String?
+    var  player_red_cards: String?
+    var player_assists: String?
+    var player_minutes: String?
+    var player_match_played: String?
+    var player_is_captain: String?
+    var player_shots_total: String?
+    var  player_goals_conceded: String?
+    var  player_fouls_commited: String?
+    var  player_tackles: String?
+    var  player_blocks: String?
     
     var player_key: Int?
     var player_country: String?
     var player_bday: String?
     var player_logo: String?
+    var player_age: String?
+    var player_rating: String?
+
+   
 
 }
 

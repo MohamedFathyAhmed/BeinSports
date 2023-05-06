@@ -46,8 +46,8 @@
             filePath = "BeinSports/view/FixturesVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -82,6 +82,178 @@
                   offsetFromSymbolStart = "22285">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79BF1369-8CDB-4416-AB1F-39293B2F45CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeinSports/view/PlayerDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "getDes(player:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "79BF1369-8CDB-4416-AB1F-39293B2F45CE - 930873ace77a97e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.getDes(player: Swift.Optional&lt;BeinSports.Player&gt;) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "79BF1369-8CDB-4416-AB1F-39293B2F45CE - 930873ace77a9780"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.getDes(player: Swift.Optional&lt;BeinSports.Player&gt;) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B98287AD-D826-41AB-84A2-2653B57951F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeinSports/view/PlayerDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "PlayerDetailsVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "B98287AD-D826-41AB-84A2-2653B57951F9 - 2cd952bfa71b570"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.playerId.getter : Swift.String"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "103">
+               </Location>
+               <Location
+                  uuid = "B98287AD-D826-41AB-84A2-2653B57951F9 - 1ae7182a6d48856c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.playerId.setter : Swift.String"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "B98287AD-D826-41AB-84A2-2653B57951F9 - 42c30e8f8e60e17f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.playerId.modify : Swift.String"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B98287AD-D826-41AB-84A2-2653B57951F9 - 5e23e14e7c2f736c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.playerId.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "B98287AD-D826-41AB-84A2-2653B57951F9 - 98e7aa601a99faf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; BeinSports.PlayerDetailsVC"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "790">
+               </Location>
+               <Location
+                  uuid = "B98287AD-D826-41AB-84A2-2653B57951F9 - 706116c7bdad5208"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.PlayerDetailsVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;BeinSports.PlayerDetailsVC&gt;"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/PlayerDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "747">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6849C64-9020-423D-8D33-79D6AE6FDFBE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeinSports/view/FixturesVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
