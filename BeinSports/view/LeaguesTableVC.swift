@@ -18,16 +18,10 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(sport) Leagues"
-        let param : [String: String] = ["met": "Leagues"]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: ResultsResult?, error) in
-                   self.arrLeagues=dataurl?.result ?? [Result]()
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-               }
-        
         tableView.register(UINib(nibName: "CustomTableCell", bundle: nil), forCellReuseIdentifier: "CustomTableCell")
         
+        var protocolVar : PresenterLeaguesTableVC = PresenterLeaguesTableVC(protocolVar: self)
+        protocolVar.getLeagues(sport: sport)
       
     }
 
@@ -59,7 +53,7 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.countryLabel.text = data.country_name
         cell.nameLabel.text = data.league_name
         
-        cell.imgView.sd_setImage(with: URL(string: data.league_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+        cell.imgView.sd_setImage(with: URL(string: data.league_logo ?? ""), placeholderImage: UIImage(named: sport))
         return cell
     }
     
@@ -128,3 +122,16 @@ extension LeaguesTableVC :UISearchBarDelegate{
     
 }
 
+
+
+extension LeaguesTableVC : ProtocolLeaguesTableVC{
+    
+    func getLeagues(resultsResult: ResultsResult?) {
+        self.arrLeagues=resultsResult?.result ?? [Result]()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+}

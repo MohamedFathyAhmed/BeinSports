@@ -19,25 +19,27 @@ class FixturesVC: UIViewController {
     var arrEvent = [Event]()
     var arrResult=[Result]()
     var arrTeams=[Teams]()
-   
-
+    var arrTennisPlayer = [Player]()
+    
+    var protocolVar : PresenterFixturesTableVC?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  
+        protocolVar = PresenterFixturesTableVC(protocolVar: self)
+        
         registerCells()
-        callEventApi()
-        callResultApi()
-        callTeamApi()
+        protocolVar?.callEventApi(sport: sport)
+        protocolVar?.callResultApi(sport: sport)
+        protocolVar?.callTeamApi(sport: sport,leagueId: leagueId)
     }
     
 
-     func registerCells() {
-        eventCollection.register(UINib(nibName: "EventCVCell", bundle: nil), forCellWithReuseIdentifier: "EventCVCell")
-        teamsCollection.register(UINib(nibName: "TeamCVCell" ,bundle: nil), forCellWithReuseIdentifier: "TeamCVCell")
-        resultsCollection.register(UINib(nibName: "ResultCVCell", bundle: nil), forCellWithReuseIdentifier: "ResultCVCell")
-    }
-    
    
+   
+  
+    
     
 }
 
@@ -55,7 +57,11 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
         case resultsCollection:
             return arrResult.count
         case teamsCollection:
-            return arrTeams.count
+            if(sport == "tennis"){
+                return arrTennisPlayer.count
+            }else{
+                return arrTeams.count
+            }
         default: return 0
         }
     }
@@ -66,12 +72,21 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             //MARK: -event Cell
         case eventCollection:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCVCell", for: indexPath) as! EventCVCell
-            cell.homeImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].home_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
-            cell.awayImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].away_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
             cell.dateLabel.text = arrEvent[indexPath.row].event_date
             cell.timeLabel.text = arrEvent[indexPath.row].event_time
-            cell.nameHomeLab.text = arrEvent[indexPath.row].event_home_team
-            cell.nameAwayLab.text = arrEvent[indexPath.row].event_away_team
+            if(sport == "tennis"){
+                cell.homeImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].event_first_player_logo ?? ""), placeholderImage: UIImage(named: sport))
+                cell.awayImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].event_second_player_logo ?? ""), placeholderImage: UIImage(named: sport))
+            
+                cell.nameHomeLab.text = arrEvent[indexPath.row].event_first_player
+                cell.nameAwayLab.text = arrEvent[indexPath.row].event_second_player
+            }else{
+                cell.homeImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].home_team_logo ?? ""), placeholderImage: UIImage(named: sport))
+                cell.awayImageE.sd_setImage(with: URL(string: arrEvent[indexPath.row].away_team_logo ?? ""), placeholderImage: UIImage(named: sport))
+            
+                cell.nameHomeLab.text = arrEvent[indexPath.row].event_home_team
+                cell.nameAwayLab.text = arrEvent[indexPath.row].event_away_team
+            }
             return cell
             
             
@@ -80,22 +95,38 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             //MARK: -results Cell
         case resultsCollection:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCVCell", for: indexPath) as! ResultCVCell
-            cell.awayImage.sd_setImage(with: URL(string: arrResult[indexPath.row].event_away_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
-            cell.homeImage.sd_setImage(with: URL(string: arrResult[indexPath.row].home_team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+            cell.timeLabel.text=arrResult[indexPath.row].event_time
             cell.resultLabel.text = arrResult[indexPath.row].event_final_result
             cell.dateLabel.text = arrResult[indexPath.row].event_date
-            cell.awayNameLab.text=arrResult[indexPath.row].event_away_team
-            cell.timeLabel.text=arrResult[indexPath.row].event_time
-            cell.homeNameLab.text=arrResult[indexPath.row].event_home_team
+            
+            if(sport == "tennis"){
+                cell.awayImage.sd_setImage(with: URL(string: arrResult[indexPath.row].event_second_player_logo ?? ""), placeholderImage: UIImage(named: sport))
+                cell.homeImage.sd_setImage(with: URL(string: arrResult[indexPath.row].event_first_player_logo ?? ""), placeholderImage: UIImage(named: sport))
+                cell.awayNameLab.text=arrResult[indexPath.row].event_second_player
+                cell.homeNameLab.text=arrResult[indexPath.row].event_first_player
+                
+            }else{
+                cell.awayImage.sd_setImage(with: URL(string: arrResult[indexPath.row].event_away_team_logo ?? ""), placeholderImage: UIImage(named: sport))
+                cell.homeImage.sd_setImage(with: URL(string: arrResult[indexPath.row].home_team_logo ?? ""), placeholderImage: UIImage(named: sport))
+                cell.awayNameLab.text=arrResult[indexPath.row].event_away_team
+                cell.homeNameLab.text=arrResult[indexPath.row].event_home_team
+            }
             return cell
             
             
             //MARK: -teams Cell
         case teamsCollection:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCVCell", for: indexPath) as! TeamCVCell
-            cell.teamLabel.text=arrTeams[indexPath.row].team_name
-          
-            cell.teamLogo.sd_setImage(with: URL(string: arrTeams[indexPath.row].team_logo ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+            if(sport == "tennis"){
+                
+                cell.teamLabel.text=arrTennisPlayer[indexPath.row].player_name
+                cell.teamLogo.sd_setImage(with: URL(string: arrTennisPlayer[indexPath.row].player_logo ?? ""), placeholderImage: UIImage(named: sport))
+                
+            }else{
+                cell.teamLabel.text=arrTeams[indexPath.row].team_name
+                
+                cell.teamLogo.sd_setImage(with: URL(string: arrTeams[indexPath.row].team_logo ?? ""), placeholderImage: UIImage(named: sport))
+            }
             return cell
         default: return UICollectionViewCell()
         }
@@ -121,11 +152,18 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             
         case resultsCollection:
           // break
-            callHighlightApi(eventId:  arrResult[indexPath.row].event_key ?? 0)
+            //arrResult[indexPath.row].event_key ?? 0
+            protocolVar?.callHighlightApi(sport: sport )
+            
         case teamsCollection:
-            let vc = storyboard?.instantiateViewController(withIdentifier: "TeamDetailsVC" ) as! TeamDetailsVC
-            vc.team = arrTeams[indexPath.row]
-            navigationController? .pushViewController(vc , animated : true )
+            if(sport == "tennis"){
+                
+            }else{
+                let vc = storyboard?.instantiateViewController(withIdentifier: "TeamDetailsVC" ) as! TeamDetailsVC
+                vc.sport=sport
+                vc.team = arrTeams[indexPath.row]
+                navigationController? .pushViewController(vc , animated : true )
+            }
         default: break
         }
     }
@@ -134,71 +172,83 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
 
 
 
-//MARK: -call api func
+//MARK: -
 extension FixturesVC{
-    func callEventApi() {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.locale = Locale(identifier: "en_US")
-        let calendar = Calendar.current
-        let newDate = calendar.date(byAdding: .day, value: 14, to: date)
+    
+    
+    func getArrTennisPlayer(arrEvent : [Event]){
         
-        let from :String = dateFormatter.string(from: date)
-        let to :String = dateFormatter.string(from: newDate!)
-      //  print(from + to)
-      //  var from :String = "2023-03-18"
-      // var to :String = "2023-04-29"
-        let param : [String: String] = ["met": "Fixtures","from":from,"to":to,"leagueId":leagueId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: EventsResult?, error) in
-                   self.arrEvent=dataurl?.result ?? [Event]()
-                   DispatchQueue.main.async {
-                       self.eventCollection.reloadData()
-                   }
-               }
- 
-             }
+        arrEvent.forEach { Event in
+          var player1 = Player()
+            player1.player_name = Event.event_first_player
+            player1.player_logo = Event.event_first_player_logo
+            player1.player_key = Event.first_player_key
+            arrTennisPlayer.append(player1)
+            var player2 = Player()
+              player2.player_name = Event.event_second_player
+              player2.player_logo = Event.event_second_player_logo
+              player2.player_key = Event.second_player_key
+            arrTennisPlayer.append(player2)
 
-    func callResultApi() {
-        let param : [String: String] = ["met": "Livescore"]//,"leagueId":leagueId
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: ResultsResult?, error) in
-            self.arrResult=dataurl?.result ?? [Result]()
-                   DispatchQueue.main.async {
-                       self.resultsCollection.reloadData()
-                   }
-               }
- 
-             }
-    func callTeamApi() {
-        let param : [String: String] = ["met": "Teams","leagueId":leagueId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: TeamsResult?, error) in
-            self.arrTeams=dataurl?.result ?? [Teams]()
-                   DispatchQueue.main.async {
-                       self.teamsCollection.reloadData()
-                   }
-               }
- 
-             }
-    func callHighlightApi(eventId  : Int) {
-        var event = String(describing: eventId)
-        event="1059523"
-        let param : [String: String] = ["met": "Videos","eventId":event]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: videoResult?, error) in
-            let res = dataurl?.result ?? [video]()
-                   DispatchQueue.main.async {
-                       if let videoURL = res.first?.video_url.asUrl{
-                           self.playVideo(url:videoURL)
-                       }
-                   }
-               }
-             }
+        }
+
+        teamsCollection.reloadData()
+    }
+    
+    func registerCells() {
+       eventCollection.register(UINib(nibName: "EventCVCell", bundle: nil), forCellWithReuseIdentifier: "EventCVCell")
+       teamsCollection.register(UINib(nibName: "TeamCVCell" ,bundle: nil), forCellWithReuseIdentifier: "TeamCVCell")
+       resultsCollection.register(UINib(nibName: "ResultCVCell", bundle: nil), forCellWithReuseIdentifier: "ResultCVCell")
+   }
+   
+    
     func playVideo(url: URL) {
          let player = AVPlayer(url: url)
 
          let vc = AVPlayerViewController()
          vc.player = player
-
+        
          self.present(vc, animated: true) { vc.player?.play() }
      }
+  
 
+}
+
+
+extension FixturesVC : ProtocolFixturesVC{
+    
+    func getEventApi(eventsResult: EventsResult?) {
+        self.arrEvent=eventsResult?.result ?? [Event]()
+       
+        DispatchQueue.main.async {
+            self.eventCollection.reloadData()
+            self.getArrTennisPlayer(arrEvent : self.arrEvent)
+        }
+    }
+    
+    
+    func getResultApi(resultsResult: ResultsResult?) {
+        self.arrResult=resultsResult?.result ?? [Result]()
+               DispatchQueue.main.async {
+                   self.resultsCollection.reloadData()
+               }
+    }
+    
+    func getTeamApi(teamsResult: TeamsResult?) {
+        self.arrTeams=teamsResult?.result ?? [Teams]()
+               DispatchQueue.main.async {
+                   self.teamsCollection.reloadData()
+               }
+    }
+    
+    func getHighlightApi(videoResult: videoResult?) {
+        let res = videoResult?.result ?? [video]()
+               DispatchQueue.main.async {
+                   if let videoURL = res.first?.video_url.asUrl{
+                       self.playVideo(url:videoURL)
+                   }
+               }
+    }
+    
+    
 }

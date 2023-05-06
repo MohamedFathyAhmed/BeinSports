@@ -11,6 +11,8 @@
 		1457F23129FFF435005FC048 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457F23029FFF435005FC048 /* APIServices.swift */; };
 		1457F23329FFF8B8005FC048 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457F23229FFF8B8005FC048 /* Network.swift */; };
 		1457F2352A00003F005FC048 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457F2342A00003F005FC048 /* Model.swift */; };
+		1475518E2A05C2F400436D74 /* PresenterLeaguesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475518D2A05C2F400436D74 /* PresenterLeaguesTableVC.swift */; };
+		147551922A05CAEF00436D74 /* PresenterFixturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147551912A05CAEF00436D74 /* PresenterFixturesVC.swift */; };
 		14929FF62A0073880024D71E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14929FF42A0073880024D71E /* OnboardingCollectionViewCell.swift */; };
 		14929FF72A0073880024D71E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14929FF52A0073880024D71E /* OnboardingViewController.swift */; };
 		14929FF92A0074200024D71E /* OnboaringSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14929FF82A0074200024D71E /* OnboaringSlide.swift */; };
@@ -71,6 +73,8 @@
 		1457F23029FFF435005FC048 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		1457F23229FFF8B8005FC048 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		1457F2342A00003F005FC048 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1475518D2A05C2F400436D74 /* PresenterLeaguesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterLeaguesTableVC.swift; sourceTree = "<group>"; };
+		147551912A05CAEF00436D74 /* PresenterFixturesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterFixturesVC.swift; sourceTree = "<group>"; };
 		14929FF42A0073880024D71E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		14929FF52A0073880024D71E /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		14929FF82A0074200024D71E /* OnboaringSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboaringSlide.swift; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1475518C2A05C2B200436D74 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				147551912A05CAEF00436D74 /* PresenterFixturesVC.swift */,
+				1475518D2A05C2F400436D74 /* PresenterLeaguesTableVC.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
 		14929FF32A0073880024D71E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +184,8 @@
 		1492A0032A0075D80024D71E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				149FAEBA29FFED7200A9C741 /* Main.storyboard */,
+				149FAEC229FFED7400A9C741 /* LaunchScreen.storyboard */,
 				14970D7A2A014A56003951D9 /* LauchScreenVC.swift */,
 				149FAEB829FFED7200A9C741 /* HomeVC.swift */,
 				1492A0212A011F520024D71E /* LeaguesTableVC.swift */,
@@ -300,16 +315,15 @@
 		149FAEB329FFED7200A9C741 /* BeinSports */ = {
 			isa = PBXGroup;
 			children = (
+				1475518C2A05C2B200436D74 /* presenter */,
 				14970D7C2A014D95003951D9 /* asset */,
 				1492A0202A0088020024D71E /* model */,
-				1492A01F2A0083670024D71E /* delegate */,
 				14929FFA2A0074BA0024D71E /* Extensions */,
 				1492A0032A0075D80024D71E /* view */,
-				149FAEBA29FFED7200A9C741 /* Main.storyboard */,
-				149FAEC229FFED7400A9C741 /* LaunchScreen.storyboard */,
 				149FAEC529FFED7400A9C741 /* Info.plist */,
 				149FAEBD29FFED7200A9C741 /* BeinSports.xcdatamodeld */,
 				1457F23229FFF8B8005FC048 /* Network.swift */,
+				1492A01F2A0083670024D71E /* delegate */,
 			);
 			path = BeinSports;
 			sourceTree = "<group>";
@@ -616,6 +630,7 @@
 				1457F2352A00003F005FC048 /* Model.swift in Sources */,
 				1492A0162A0079150024D71E /* ResultCVCell.swift in Sources */,
 				1457F23129FFF435005FC048 /* APIServices.swift in Sources */,
+				147551922A05CAEF00436D74 /* PresenterFixturesVC.swift in Sources */,
 				149FAEBF29FFED7200A9C741 /* BeinSports.xcdatamodeld in Sources */,
 				1492A01D2A0079150024D71E /* CustomCollectionViewCell.swift in Sources */,
 				14929FF62A0073880024D71E /* OnboardingCollectionViewCell.swift in Sources */,
@@ -625,6 +640,7 @@
 				1492A0222A011F520024D71E /* LeaguesTableVC.swift in Sources */,
 				1457F23329FFF8B8005FC048 /* Network.swift in Sources */,
 				149FAEB929FFED7200A9C741 /* HomeVC.swift in Sources */,
+				1475518E2A05C2F400436D74 /* PresenterLeaguesTableVC.swift in Sources */,
 				1492A01C2A0079150024D71E /* CustomTableCell.swift in Sources */,
 				1492A0172A0079150024D71E /* TeamCVCell.swift in Sources */,
 				14970D7B2A014A56003951D9 /* LauchScreenVC.swift in Sources */,

@@ -14,22 +14,11 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
-
-    
         
     }
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -49,7 +38,7 @@ extension HomeVC:UICollectionViewDataSource ,UICollectionViewDelegate ,UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
        cell.sportName.text=sports[indexPath.row]
        cell.sportName.textColor = .black
-       cell.sportsImageView.image = UIImage(named: "football")
+       cell.sportsImageView.image = UIImage(named: sports[indexPath.row])
         return cell
     }
     

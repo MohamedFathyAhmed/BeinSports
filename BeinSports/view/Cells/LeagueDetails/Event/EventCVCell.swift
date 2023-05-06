@@ -23,9 +23,9 @@ class EventCVCell: UICollectionViewCell {
 //        homeImageE.layer.borderWidth = 1.5
 //        awayImageE.layer.borderWidth = 1.5
         // Initialization code
-        contentView.layer.cornerRadius = 20
-        contentView.layer.borderColor = Color.accentColor.cgColor
-        contentView.layer.borderWidth = 2
+ //       contentView.layer.cornerRadius = 20
+ //       contentView.layer.borderColor = Color.accentColor.cgColor
+  //      contentView.layer.borderWidth = 2
     }
 
 }

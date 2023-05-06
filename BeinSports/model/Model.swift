@@ -34,6 +34,14 @@ struct Event: Codable {
     var event_country_key: Int?
     var league_logo: String?
     var country_logo: String?
+    
+    
+    var event_second_player_logo: String?
+    var event_first_player_logo: String?
+    var event_first_player: String?
+    var event_second_player: String?
+    var first_player_key: Int?
+    var second_player_key: Int?
 }
 
 
@@ -55,6 +63,12 @@ struct Player: Codable{
     var player_type: String?
     var player_number: String?
     var player_image: String?
+    
+    var player_key: Int?
+    var player_country: String?
+    var player_bday: String?
+    var player_logo: String?
+
 }
 
 
@@ -88,6 +102,11 @@ struct Result: Codable {
     var event_country_key: Int?
     var league_logo: String?
     var country_logo: String?
+    
+    var event_second_player_logo: String?
+    var event_first_player_logo: String?
+    var event_first_player: String?
+    var event_second_player: String?
 }
 
 struct videoResult: Codable {
