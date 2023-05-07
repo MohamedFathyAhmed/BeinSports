@@ -105,6 +105,43 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            switch indexPath.section{
+            case 0 :
+                var data :DBTeam?
+                if(self.searchActive){
+                    data = self.filteredTeams [indexPath.row]
+                }else{
+                    data = self.arrTeams [indexPath.row]
+                }
+                self.deleteTeam(data: data!)
+                self.arrTeams.remove(at: indexPath.row)
+                tableView.reloadData()
+            default:
+                var data :DBPlayer?
+                if(self.searchActive){
+                    data = self.filteredPlayers [indexPath.row]
+                }else{
+                    data = self.arrPlayers [indexPath.row]
+                }
+                self.deletePlayer( data: data!)
+                self.arrPlayers.remove(at: indexPath.row)
+                tableView.reloadData()
+            }
+            
+        
+
+            completionHandler(true)
+        }
+        deleteAction.backgroundColor = .red
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+
+    
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          switch indexPath.section{
          case 0 :
@@ -139,6 +176,15 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
          }
     }
+    
+    func deleteTeam(data: DBTeam!){
+        CoreData.shared.deleteTeam(Team: data!)
+    }
+    func deletePlayer( data: DBPlayer!){
+        CoreData.shared.deletePlayer( Team: data!)
+    }
+    
+    
 }
 
 
