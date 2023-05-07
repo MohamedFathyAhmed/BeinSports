@@ -31,5 +31,19 @@ class PresenterTeamDetailsVC {
                }
              }
 
-
+    func insertTeam (key: Int ,name: String , logo :String,sport :String ){
+        CoreData.shared.insertTeam(key:  key , name: name, logo: logo, sport: sport)
+    }
+ 
+    func isFav (key : Int) -> Bool{
+        var flag = false
+        let data =  CoreData.shared.readTeams()
+        data.forEach { Player in
+            if( Player.key  == key ){
+                flag = true
+            }
+        }
+        return flag
+    }
+    
 }

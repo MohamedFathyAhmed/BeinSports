@@ -24,15 +24,18 @@ class TeamDetailsVC: UIViewController {
         tableView.register(UINib(nibName: "PlayersTableCell", bundle: nil), forCellReuseIdentifier: "PlayersTableCell")
   
         favButton.isHidden = fromNetwork
+        protocolVar = PresenterTeamDetailsVC(protocolVar: self)
         if(fromNetwork){
-            
-            protocolVar = PresenterTeamDetailsVC(protocolVar: self)
             protocolVar?.callTeamApi(sport: sport, teamId: teamId)
             
         }else{
             arrPlayers = team?.players
             teamNameLab.text=team?.team_name
             teamImg.sd_setImage(with: URL(string: team?.team_logo ?? ""), placeholderImage: UIImage(named: sport))
+            if( self.protocolVar?.isFav(key: self.team!.team_key!) ?? false){
+                self.favButton.isEnabled = false
+                self.favButton.image = UIImage(systemName: "star.fill")
+            }
         }
   
     }
@@ -40,7 +43,9 @@ class TeamDetailsVC: UIViewController {
     @IBAction func favClick(_ sender: Any) {
         favButton.isEnabled = false
         favButton.image = UIImage(systemName: "star.fill")
-        CoreData.shared.insertTeam(key:  team?.team_key ?? 0 , name: team?.team_name ?? "", logo: team?.team_logo ?? "", sport: sport)
+        
+        
+        protocolVar!.insertTeam(key:  team?.team_key ?? 0 , name: team?.team_name ?? "", logo: team?.team_logo ?? "", sport: sport)
         Utls.showToast(view: self.view, text: "added to favorites")
     }
 }
@@ -89,8 +94,13 @@ extension TeamDetailsVC :ProtocolTeamDetailsVC {
                    self.teamNameLab.text=self.team?.team_name
                    self.teamImg.sd_setImage(with: URL(string: self.team?.team_logo ?? ""), placeholderImage: UIImage(named: self.sport))
                    self.tableView.reloadData()
-                   
+                
+                   if( self.protocolVar?.isFav(key: self.team!.team_key!) ?? false){
+                       self.favButton.isEnabled = false
+                       self.favButton.image = UIImage(systemName: "star.fill")
+                   }
                }
+     
     }
     
     

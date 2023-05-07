@@ -42,14 +42,14 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
        return 2
     }
 
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section{
-//        case 0 :
-//            return "teams"
-//        default:
-//            return "players"
-//        }
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 0 :
+            return ""
+        default:
+            return "players"
+        }
+    }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          switch section{

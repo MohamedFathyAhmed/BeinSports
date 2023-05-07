@@ -21,12 +21,13 @@ class PlayerDetailsVC: UIViewController {
     @IBOutlet weak var teamNameLab: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewheight: NSLayoutConstraint!
+    var protocolVar : PresenterPlayerDetailsVC?
     override func viewDidLoad() {
         super.viewDidLoad()
         des = [String]()
-        
+        protocolVar = PresenterPlayerDetailsVC(protocolVar: self)
         favButton.isHidden = fromNetwork
-        callPlayerApi(sport: sport, playerId: playerId)
+        protocolVar!.callPlayerApi(sport: sport, playerId: playerId)
 
     
     
@@ -44,7 +45,7 @@ class PlayerDetailsVC: UIViewController {
            logo = player?.player_image ?? ""
         }
         
-        CoreData.shared.insertPlayer(key:  player?.player_key ?? 0 , name: player?.player_name ?? "", logo: logo, sport: sport)
+        protocolVar!.insertPlayer(key:  player?.player_key ?? 0 , name: player?.player_name ?? "", logo: logo, sport: sport)
         Utls.showToast(view: self.view, text: "added to favorites")
     }
   
@@ -81,23 +82,7 @@ extension PlayerDetailsVC:UITableViewDelegate,UITableViewDataSource{
 
 extension PlayerDetailsVC  {
    
-    func callPlayerApi(sport :String,playerId :String) {
-        let param : [String: String] = ["met": "Players","playerId": playerId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: PlayerResult?, error) in
-            self.player = dataurl?.result.first
-            self.getDes(player: self.player)
-            
-            self.teamNameLab.text=self.player?.player_name
-            if(sport == "tennis"){
-                self.teamImg.sd_setImage(with: URL(string: self.player?.player_logo ?? ""), placeholderImage: UIImage(named: self.sport))
-            }else{
-                self.teamImg.sd_setImage(with: URL(string: self.player?.player_image ?? ""), placeholderImage: UIImage(named: self.sport))
-            }
-
-          
-            
-               }
-             }
+   
     
     
 
@@ -180,4 +165,29 @@ extension PlayerDetailsVC  {
         }
         self.tableView.reloadData()
     }
+}
+
+
+extension PlayerDetailsVC : ProtocolPlayerDetailsVC{
+    func getPlayerApi(playerResult: PlayerResult?) {
+        self.player = playerResult?.result.first
+        self.getDes(player: self.player)
+        
+        self.teamNameLab.text=self.player?.player_name
+        if(sport == "tennis"){
+            self.teamImg.sd_setImage(with: URL(string: self.player?.player_logo ?? ""), placeholderImage: UIImage(named: self.sport))
+        }else{
+            self.teamImg.sd_setImage(with: URL(string: self.player?.player_image ?? ""), placeholderImage: UIImage(named: self.sport))
+        }
+       
+        if( protocolVar?.isFav(key: player!.player_key!) ?? false){
+            favButton.isEnabled = false
+            favButton.image = UIImage(systemName: "star.fill")
+        }
+
+    }
+    
+    
+    
+    
 }
