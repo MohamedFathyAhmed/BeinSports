@@ -38,4 +38,17 @@ final class MockNetworkManagerTests: XCTestCase {
         }
 
     }
+    
+    func testDataDecoding_TeamsResult() {
+
+        networkManager.getDataAll(route: .typy("football"), method: .get, params: nil, encoding: URLEncoding.default, headers: nil) { (dataurl: TeamsResult?, error) in
+            guard let data = dataurl else {
+                
+                XCTFail()
+                return
+            }
+            XCTAssertNotEqual(data.result?.count, 0, "Failed")
+        }
+
+    }
 }

@@ -22,6 +22,8 @@ class PresenterFixturesTableVC {
    
     var protocolVar : ProtocolFixturesVC?
     
+    
+    
     init(protocolVar: ProtocolFixturesVC? = nil) {
         self.protocolVar = protocolVar
     }

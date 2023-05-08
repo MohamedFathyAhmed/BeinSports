@@ -56,6 +56,8 @@
 		14A2E3A02A06B84A00C7CA63 /* PlayerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2E39F2A06B84A00C7CA63 /* PlayerDetailsVC.swift */; };
 		14A2E3A32A06E1F400C7CA63 /* Utls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2E3A22A06E1F400C7CA63 /* Utls.swift */; };
 		14A2E3A52A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2E3A42A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift */; };
+		14D667032A09B4210076EF63 /* UnitTestingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D667022A09B4210076EF63 /* UnitTestingNetwork.swift */; };
+		14D667052A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D667042A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift */; };
 		14ECCE9E2A0193AE000F9C03 /* FixturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECCE9D2A0193AE000F9C03 /* FixturesVC.swift */; };
 		1787117B165E962D1EF80655 /* Pods_BeinSports_BeinSportsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864DC6021E235C46E0072B90 /* Pods_BeinSports_BeinSportsUITests.framework */; };
 		AFB1D6CBE652C82217172DC0 /* Pods_BeinSports.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CCED2757D38C0D5B079CDE /* Pods_BeinSports.framework */; };
@@ -132,6 +134,8 @@
 		14A2E39F2A06B84A00C7CA63 /* PlayerDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsVC.swift; sourceTree = "<group>"; };
 		14A2E3A22A06E1F400C7CA63 /* Utls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utls.swift; sourceTree = "<group>"; };
 		14A2E3A42A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterPlayerDetailsVC.swift; sourceTree = "<group>"; };
+		14D667022A09B4210076EF63 /* UnitTestingNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestingNetwork.swift; sourceTree = "<group>"; };
+		14D667042A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPresenterFixturesTableVC.swift; sourceTree = "<group>"; };
 		14ECCE9D2A0193AE000F9C03 /* FixturesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesVC.swift; sourceTree = "<group>"; };
 		357C8525278F400EE3B39515 /* Pods-BeinSports.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeinSports.release.xcconfig"; path = "Target Support Files/Pods-BeinSports/Pods-BeinSports.release.xcconfig"; sourceTree = "<group>"; };
 		36CCED2757D38C0D5B079CDE /* Pods_BeinSports.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeinSports.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,9 +363,11 @@
 		149FAECD29FFED7400A9C741 /* BeinSportsTests */ = {
 			isa = PBXGroup;
 			children = (
+				14D667042A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift */,
+				14D667022A09B4210076EF63 /* UnitTestingNetwork.swift */,
 				149FAECE29FFED7400A9C741 /* BeinSportsTests.swift */,
-				1468DCA02A09AF7400B0DE73 /* MockNetworkManager.swift */,
 				1468DCA12A09AF7400B0DE73 /* MockNetworkManagerTests.swift */,
+				1468DCA02A09AF7400B0DE73 /* MockNetworkManager.swift */,
 			);
 			path = BeinSportsTests;
 			sourceTree = "<group>";
@@ -695,8 +701,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1468DCA32A09AF7400B0DE73 /* MockNetworkManagerTests.swift in Sources */,
+				14D667052A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift in Sources */,
 				1468DCA22A09AF7400B0DE73 /* MockNetworkManager.swift in Sources */,
 				149FAECF29FFED7400A9C741 /* BeinSportsTests.swift in Sources */,
+				14D667032A09B4210076EF63 /* UnitTestingNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

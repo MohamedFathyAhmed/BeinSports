@@ -2,15 +2,16 @@
 //  BeinSportsTests.swift
 //  BeinSportsTests
 //
-//  Created by mo_fathy on 01/05/2023.
+//  Created by mo_fathy on 09/05/2023.
 //
 
 import XCTest
 @testable import BeinSports
 
 final class BeinSportsTests: XCTestCase {
-
+    var date :Date?
     override func setUpWithError() throws {
+        date = Date()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -18,19 +19,32 @@ final class BeinSportsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testGetDate() throws {
+        var res = Utls.getDate()
+        
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US")
+        var strDate = dateFormatter.string(from: date!)
+        
+        XCTAssertEqual(res, strDate)
+    }
+    
+    func testNextDate() throws {
+        var res = Utls.getNext30Date()
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let calendar = Calendar.current
+        let newDate = calendar.date(byAdding: .day, value: 30, to: date!)
+        var strDate = dateFormatter.string(from: newDate!)
+        
+        XCTAssertEqual(res, strDate)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+  
 
 }
