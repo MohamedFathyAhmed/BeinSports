@@ -11,10 +11,12 @@ import SDWebImage
 class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searcgBar: UISearchBar!
+    var imageView = UIImageView(image: UIImage(named: "empty"))
+    
     var searchActive : Bool = false
     var arrTeams = [DBTeam]()
     var filteredTeams=[DBTeam]()
-    
+    var protocolVar : PresenterFavTableVC?
     var arrPlayers = [DBPlayer]()
     var filteredPlayers=[DBPlayer]()
     
@@ -22,8 +24,7 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CustomTableCell", bundle: nil), forCellReuseIdentifier: "CustomTableCell")
-        
-        //var protocolVar : PresenterLeaguesTableVC = PresenterLeaguesTableVC(protocolVar: self)
+        protocolVar  = PresenterFavTableVC(protocolVar: self)
         
       
     }
@@ -31,8 +32,8 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         searchActive=false
         tableView.reloadData()
-        arrTeams = CoreData.shared.readTeams()
-        arrPlayers = CoreData.shared.readPlayers()
+        arrTeams = (protocolVar?.getTeams())!
+        arrPlayers = (protocolVar?.getPlayers())!
         tableView.reloadData()
     }
 
@@ -54,6 +55,14 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          switch section{
          case 0 :
+             
+             if(arrTeams.count == 0 && arrPlayers.count == 0 ){
+                 imageView.contentMode = .scaleAspectFit
+                 tableView.backgroundView = imageView
+             }else{
+                 tableView.backgroundView = .none
+             }
+             
              if(searchActive){
                 return filteredTeams.count
             }else{
@@ -115,7 +124,7 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 }else{
                     data = self.arrTeams [indexPath.row]
                 }
-                self.deleteTeam(data: data!)
+                self.protocolVar!.deleteTeam(data: data!)
                 self.arrTeams.remove(at: indexPath.row)
                 tableView.reloadData()
             default:
@@ -125,7 +134,7 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 }else{
                     data = self.arrPlayers [indexPath.row]
                 }
-                self.deletePlayer( data: data!)
+                self.protocolVar!.deletePlayer( data: data!)
                 self.arrPlayers.remove(at: indexPath.row)
                 tableView.reloadData()
             }
@@ -177,13 +186,7 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
          }
     }
     
-    func deleteTeam(data: DBTeam!){
-        CoreData.shared.deleteTeam(Team: data!)
-    }
-    func deletePlayer( data: DBPlayer!){
-        CoreData.shared.deletePlayer( Team: data!)
-    }
-    
+ 
     
 }
 
@@ -225,12 +228,11 @@ extension FavTableVC :UISearchBarDelegate{
     }
 
    
-    
-    
+}
+extension FavTableVC :ProtocolFavTableVC {
     
     
 }
-
 
 
 

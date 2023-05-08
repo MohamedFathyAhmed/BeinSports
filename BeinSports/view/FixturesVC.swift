@@ -14,6 +14,10 @@ class FixturesVC: UIViewController {
     @IBOutlet weak var eventCollection: UICollectionView!
     @IBOutlet weak var teamsCollection: UICollectionView!
     @IBOutlet weak var resultsCollection: UICollectionView!
+    let imageView = UIImageView(image: UIImage(named: "noresult2"))
+    let imageView2 = UIImageView(image: UIImage(named: "noresult2"))
+    let imageView3 = UIImageView(image: UIImage(named: "noresult2"))
+   
     var leagueId:String = ""
     var sport:String = ""
     var arrEvent = [Event]()
@@ -26,12 +30,19 @@ class FixturesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        if (!Utls.hasConnectivity()){
+            let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { UIAlertAction in
+                self.navigationController?.popViewController(animated: true)
+            }))
+                    self.present(alert, animated: true, completion: nil)
+
+        }
         protocolVar = PresenterFixturesTableVC(protocolVar: self)
         
         registerCells()
-        protocolVar?.callEventApi(sport: sport)
-        protocolVar?.callResultApi(sport: sport)
+        protocolVar?.callEventApi(sport: sport,leagueId: leagueId)
+        protocolVar?.callResultApi(sport: sport,leagueId: leagueId)
         protocolVar?.callTeamApi(sport: sport,leagueId: leagueId)
     }
     
@@ -54,6 +65,9 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
             return arrResult.count
         case teamsCollection:
             if(sport == "tennis"){
+                if(arrTennisPlayer.count != 0){
+                    self.teamsCollection.backgroundView = .none
+                }
                 return arrTennisPlayer.count
             }else{
                 return arrTeams.count
@@ -214,14 +228,23 @@ extension FixturesVC{
 }
 
 
+
+
 extension FixturesVC : ProtocolFixturesVC{
     
     func getEventApi(eventsResult: EventsResult?) {
         self.arrEvent=eventsResult?.result ?? [Event]()
        
         DispatchQueue.main.async {
-            self.eventCollection.reloadData()
-            self.getArrTennisPlayer(arrEvent : self.arrEvent)
+            if(self.arrEvent.count == 0){
+                self.imageView.contentMode = .scaleAspectFit
+                self.eventCollection.backgroundView = self.imageView
+            }else{
+                self.eventCollection.backgroundView = .none
+                
+                self.eventCollection.reloadData()
+                self.getArrTennisPlayer(arrEvent : self.arrEvent)
+            }
         }
     }
     
@@ -229,14 +252,26 @@ extension FixturesVC : ProtocolFixturesVC{
     func getResultApi(resultsResult: ResultsResult?) {
         self.arrResult=resultsResult?.result ?? [Result]()
                DispatchQueue.main.async {
-                   self.resultsCollection.reloadData()
+                   if(self.arrResult.count == 0){
+                       self.imageView2.contentMode = .scaleAspectFit
+                       self.resultsCollection.backgroundView = self.imageView2
+                   }else{
+                       self.resultsCollection.backgroundView = .none
+                       self.resultsCollection.reloadData()
+                   }
                }
     }
     
     func getTeamApi(teamsResult: TeamsResult?) {
         self.arrTeams=teamsResult?.result ?? [Teams]()
                DispatchQueue.main.async {
-                   self.teamsCollection.reloadData()
+                   if(self.arrTeams.count == 0 && self.arrTennisPlayer.count == 0){
+                       self.imageView3.contentMode = .scaleAspectFit
+                       self.teamsCollection.backgroundView = self.imageView3
+                   }else{
+                       self.teamsCollection.backgroundView = .none
+                       self.teamsCollection.reloadData()
+                   }
                }
     }
     

@@ -653,6 +653,9 @@
             <point key="canvasLocation" x="4376" y="865"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="JuU-Pf-zpd"/>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="fsB-5P-Amv"/>
         <segue reference="8k6-wa-jO5"/>

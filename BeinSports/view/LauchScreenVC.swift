@@ -26,7 +26,7 @@ class LauchScreenVC: UIViewController {
       
       // 3. Adjust animation speed
       
-        Animationview.animationSpeed = 0.7
+        Animationview.animationSpeed = 0.9
       
       // 4. Play animation
         Animationview.play()

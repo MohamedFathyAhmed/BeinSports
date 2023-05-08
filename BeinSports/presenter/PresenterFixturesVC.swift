@@ -41,6 +41,7 @@ class PresenterFixturesTableVC {
       // var to :String = "2023-04-29"
         let param : [String: String] = ["met": "Fixtures","from":from,"to":to ,"leagueId":leagueId]
         APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: EventsResult?, error) in
+            
             self.protocolVar?.getEventApi(eventsResult: dataurl)
                }
  

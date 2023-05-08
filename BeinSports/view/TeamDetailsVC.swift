@@ -21,23 +21,31 @@ class TeamDetailsVC: UIViewController {
     @IBOutlet weak var tableViewheight: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "PlayersTableCell", bundle: nil), forCellReuseIdentifier: "PlayersTableCell")
-  
-        favButton.isHidden = fromNetwork
-        protocolVar = PresenterTeamDetailsVC(protocolVar: self)
-        if(fromNetwork){
-            protocolVar?.callTeamApi(sport: sport, teamId: teamId)
-            
+        if (!Utls.hasConnectivity()){
+            let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { UIAlertAction in
+                self.navigationController?.popViewController(animated: true)
+            }))
+                    self.present(alert, animated: true, completion: nil)
+
         }else{
-            arrPlayers = team?.players
-            teamNameLab.text=team?.team_name
-            teamImg.sd_setImage(with: URL(string: team?.team_logo ?? ""), placeholderImage: UIImage(named: sport))
-            if( self.protocolVar?.isFav(key: self.team!.team_key!) ?? false){
-                self.favButton.isEnabled = false
-                self.favButton.image = UIImage(systemName: "star.fill")
+            tableView.register(UINib(nibName: "PlayersTableCell", bundle: nil), forCellReuseIdentifier: "PlayersTableCell")
+            
+            favButton.isHidden = fromNetwork
+            protocolVar = PresenterTeamDetailsVC(protocolVar: self)
+            if(fromNetwork){
+                protocolVar?.callTeamApi(sport: sport, teamId: teamId)
+                
+            }else{
+                arrPlayers = team?.players
+                teamNameLab.text=team?.team_name
+                teamImg.sd_setImage(with: URL(string: team?.team_logo ?? ""), placeholderImage: UIImage(named: sport))
+                if( self.protocolVar?.isFav(key: self.team!.team_key!) ?? false){
+                    self.favButton.isEnabled = false
+                    self.favButton.image = UIImage(systemName: "star.fill")
+                }
             }
         }
-  
     }
 
     @IBAction func favClick(_ sender: Any) {
@@ -87,7 +95,7 @@ extension TeamDetailsVC:UITableViewDelegate,UITableViewDataSource{
 
 extension TeamDetailsVC :ProtocolTeamDetailsVC {
     func getTeamApi(teamsResult: TeamsResult?) {
-        self.team = teamsResult?.result.first ?? Teams()
+        self.team = teamsResult?.result?.first ?? Teams()
                DispatchQueue.main.async {
                   
                    self.arrPlayers = self.team?.players
@@ -95,7 +103,7 @@ extension TeamDetailsVC :ProtocolTeamDetailsVC {
                    self.teamImg.sd_setImage(with: URL(string: self.team?.team_logo ?? ""), placeholderImage: UIImage(named: self.sport))
                    self.tableView.reloadData()
                 
-                   if( self.protocolVar?.isFav(key: self.team!.team_key!) ?? false){
+                   if( self.protocolVar?.isFav(key: self.team!.team_key!) ?? true){
                        self.favButton.isEnabled = false
                        self.favButton.image = UIImage(systemName: "star.fill")
                    }

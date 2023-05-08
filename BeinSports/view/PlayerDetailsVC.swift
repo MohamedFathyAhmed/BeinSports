@@ -24,11 +24,19 @@ class PlayerDetailsVC: UIViewController {
     var protocolVar : PresenterPlayerDetailsVC?
     override func viewDidLoad() {
         super.viewDidLoad()
-        des = [String]()
-        protocolVar = PresenterPlayerDetailsVC(protocolVar: self)
-        favButton.isHidden = fromNetwork
-        protocolVar!.callPlayerApi(sport: sport, playerId: playerId)
+        if (!Utls.hasConnectivity()){
+            let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { UIAlertAction in
+                self.navigationController?.popViewController(animated: true)
+            }))
+                    self.present(alert, animated: true, completion: nil)
 
+        }else{
+            des = [String]()
+            protocolVar = PresenterPlayerDetailsVC(protocolVar: self)
+            favButton.isHidden = fromNetwork
+            protocolVar!.callPlayerApi(sport: sport, playerId: playerId)
+        }
     
     
     }
@@ -170,7 +178,7 @@ extension PlayerDetailsVC  {
 
 extension PlayerDetailsVC : ProtocolPlayerDetailsVC{
     func getPlayerApi(playerResult: PlayerResult?) {
-        self.player = playerResult?.result.first
+        self.player = playerResult?.result?.first
         self.getDes(player: self.player)
         
         self.teamNameLab.text=self.player?.player_name

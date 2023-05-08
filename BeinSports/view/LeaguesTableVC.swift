@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SDWebImage
 class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    let imageView = UIImageView(image: UIImage(named: "noresult2"))
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searcgBar: UISearchBar!
     var searchActive : Bool = false
@@ -17,10 +18,19 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     var sport:String = "football"
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "\(sport) Leagues"
+        
+        if (!Utls.hasConnectivity()){
+            let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { UIAlertAction in
+                self.navigationController?.popViewController(animated: true)
+            }))
+                    self.present(alert, animated: true, completion: nil)
+
+        }
+       title = "\(sport) Leagues"
         tableView.register(UINib(nibName: "CustomTableCell", bundle: nil), forCellReuseIdentifier: "CustomTableCell")
         
-        var protocolVar : PresenterLeaguesTableVC = PresenterLeaguesTableVC(protocolVar: self)
+        let protocolVar : PresenterLeaguesTableVC = PresenterLeaguesTableVC(protocolVar: self)
         protocolVar.getLeagues(sport: sport)
       
     }
@@ -129,7 +139,14 @@ extension LeaguesTableVC : ProtocolLeaguesTableVC{
     func getLeagues(resultsResult: ResultsResult?) {
         self.arrLeagues=resultsResult?.result ?? [Result]()
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            if(self.arrLeagues.count == 0){
+                self.tableView.backgroundView = self.imageView
+            }else{
+                self.tableView.backgroundView = .none
+                
+                self.tableView.reloadData()
+                
+            }
         }
     }
     

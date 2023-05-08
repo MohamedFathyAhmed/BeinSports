@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SystemConfiguration
 
 class Utls {
     
@@ -29,27 +30,29 @@ class Utls {
         })
     }
     
-    //MARK: reachability class
-    static func checkNetworkStatus() -> Bool {
-        let reachability: Reachability = Reachability.reachabilityForInternetConnection()
-        let networkStatus = reachability.currentReachabilityStatus().rawValue;
-        var isAvailable  = false;
+    static func hasConnectivity() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
 
-        switch networkStatus {
-        case (NotReachable.rawValue):
-            isAvailable = false;
-            break;
-        case (ReachableViaWiFi.rawValue):
-            isAvailable = true;
-            break;
-        case (ReachableViaWWAN.rawValue):
-            isAvailable = true;
-            break;
-        default:
-            isAvailable = false;
-            break;
+        guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                SCNetworkReachabilityCreateWithAddress(nil, $0)
+            }
+        }) else {
+            return false
         }
-        return isAvailable;
+
+        var flags: SCNetworkReachabilityFlags = []
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
+            return false
+        }
+
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+
+        return (isReachable && !needsConnection)
     }
-    
 }
+
+

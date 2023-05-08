@@ -8,7 +8,7 @@ import Foundation
 
 struct EventsResult: Codable {
     var success: Int?
-    var result: [Event]
+    var result: [Event]?
 }
 
 struct Event: Codable {
@@ -48,7 +48,7 @@ struct Event: Codable {
 
 struct TeamsResult: Codable {
     var success: Int?
-    var result: [Teams]
+    var result: [Teams]?
 }
 
 struct Teams: Codable {
@@ -60,7 +60,7 @@ struct Teams: Codable {
 
 struct PlayerResult: Codable {
     var success: Int
-    var result: [Player]
+    var result: [Player]?
 }
 
 struct Player: Codable{
@@ -96,7 +96,7 @@ struct Player: Codable{
 
 struct ResultsResult: Codable {
     var success: Int?
-    var result: [Result]
+    var result: [Result]?
 }
 
 struct Result: Codable {
