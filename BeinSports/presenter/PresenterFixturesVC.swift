@@ -27,18 +27,11 @@ class PresenterFixturesTableVC {
     }
     
     func callEventApi(sport :String,leagueId:String = "") {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.locale = Locale(identifier: "en_US")
-        let calendar = Calendar.current
-        let newDate = calendar.date(byAdding: .day, value: 14, to: date)
         
-        let from :String = dateFormatter.string(from: date)
-        let to :String = dateFormatter.string(from: newDate!)
-      //  print(from + to)
-      //  var from :String = "2023-03-18"
-      // var to :String = "2023-04-29"
+        let from :String = Utls.getDate()
+        let to :String = Utls.getNext30Date()
+
+  
         let param : [String: String] = ["met": "Fixtures","from":from,"to":to ,"leagueId":leagueId]
         APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: EventsResult?, error) in
             

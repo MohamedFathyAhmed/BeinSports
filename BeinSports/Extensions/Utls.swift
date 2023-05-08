@@ -11,7 +11,28 @@ import SystemConfiguration
 
 class Utls {
     
+    static func getDate() -> String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US")
+      
+        
+        return dateFormatter.string(from: date)
 
+    }
+
+    static func getNext30Date() -> String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let calendar = Calendar.current
+        let newDate = calendar.date(byAdding: .day, value: 30, to: date)
+
+       return dateFormatter.string(from: newDate!)
+    }
+    
     static func showToast(view :UIView , text :String){
         let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 75, y: view.frame.size.height-100, width: 150, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)

@@ -26,7 +26,7 @@ enum Route {
     }
 }
 
-class APIServices {
+class APIServices : NetworkManagerProtocol{
     private init() {}
     static let instance = APIServices()
     //MARK: - getDataWithErrorAll
