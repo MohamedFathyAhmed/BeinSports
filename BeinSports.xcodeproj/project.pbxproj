@@ -190,6 +190,7 @@
 		14929FFA2A0074BA0024D71E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				14A2E3A22A06E1F400C7CA63 /* Utls.swift */,
 				14929FFB2A0074BA0024D71E /* UIView+Extension.swift */,
 				14929FFC2A0074BA0024D71E /* UIViewController+Extension.swift */,
 				14929FFD2A0074BA0024D71E /* String+Extension.swift */,
@@ -337,13 +338,12 @@
 		149FAEB329FFED7200A9C741 /* BeinSports */ = {
 			isa = PBXGroup;
 			children = (
-				14A2E3A22A06E1F400C7CA63 /* Utls.swift */,
+				149FAEC529FFED7400A9C741 /* Info.plist */,
+				1492A0202A0088020024D71E /* model */,
+				1492A0032A0075D80024D71E /* view */,
 				1475518C2A05C2B200436D74 /* presenter */,
 				14970D7C2A014D95003951D9 /* asset */,
-				1492A0202A0088020024D71E /* model */,
 				14929FFA2A0074BA0024D71E /* Extensions */,
-				1492A0032A0075D80024D71E /* view */,
-				149FAEC529FFED7400A9C741 /* Info.plist */,
 				1492A01F2A0083670024D71E /* delegate */,
 			);
 			path = BeinSports;

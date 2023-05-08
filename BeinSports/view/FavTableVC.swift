@@ -124,9 +124,23 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 }else{
                     data = self.arrTeams [indexPath.row]
                 }
-                self.protocolVar!.deleteTeam(data: data!)
-                self.arrTeams.remove(at: indexPath.row)
-                tableView.reloadData()
+                let alertController = UIAlertController(title: "Delete", message: "Are you sure you want to delete this Team ?", preferredStyle: .alert)
+
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+                    self.protocolVar!.deleteTeam(data: data!)
+                    self.arrTeams.remove(at: indexPath.row)
+                    tableView.reloadData()
+                }
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                   
+                }
+
+                alertController.addAction(deleteAction)
+                alertController.addAction(cancelAction)
+
+                self.present(alertController, animated: true, completion: nil)
+              
             default:
                 var data :DBPlayer?
                 if(self.searchActive){
@@ -134,9 +148,24 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 }else{
                     data = self.arrPlayers [indexPath.row]
                 }
-                self.protocolVar!.deletePlayer( data: data!)
-                self.arrPlayers.remove(at: indexPath.row)
-                tableView.reloadData()
+                let alertController = UIAlertController(title: "Delete", message: "Are you sure you want to delete this Player ?", preferredStyle: .alert)
+
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+                    self.protocolVar!.deletePlayer( data: data!)
+                    self.arrPlayers.remove(at: indexPath.row)
+                    tableView.reloadData()
+                }
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                  
+                }
+
+                alertController.addAction(deleteAction)
+                alertController.addAction(cancelAction)
+
+                self.present(alertController, animated: true, completion: nil)
+               
+               
             }
             
         

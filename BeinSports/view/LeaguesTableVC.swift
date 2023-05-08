@@ -26,12 +26,13 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             }))
                     self.present(alert, animated: true, completion: nil)
 
+        }else{
+            title = "\(sport) Leagues"
+            tableView.register(UINib(nibName: "CustomTableCell", bundle: nil), forCellReuseIdentifier: "CustomTableCell")
+            
+            let protocolVar : PresenterLeaguesTableVC = PresenterLeaguesTableVC(protocolVar: self)
+            protocolVar.getLeagues(sport: sport)
         }
-       title = "\(sport) Leagues"
-        tableView.register(UINib(nibName: "CustomTableCell", bundle: nil), forCellReuseIdentifier: "CustomTableCell")
-        
-        let protocolVar : PresenterLeaguesTableVC = PresenterLeaguesTableVC(protocolVar: self)
-        protocolVar.getLeagues(sport: sport)
       
     }
 
@@ -140,6 +141,7 @@ extension LeaguesTableVC : ProtocolLeaguesTableVC{
         self.arrLeagues=resultsResult?.result ?? [Result]()
         DispatchQueue.main.async {
             if(self.arrLeagues.count == 0){
+                self.imageView.contentMode = .scaleAspectFit
                 self.tableView.backgroundView = self.imageView
             }else{
                 self.tableView.backgroundView = .none
