@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,19 +20,21 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BXl-Om-ZlM">
                         <rect key="frame" x="0.0" y="0.0" width="83" height="76"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Kx-nA-tN8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwj-xw-HJH" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="0.0" y="0.0" width="83" height="54.333333333333336"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="football"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYo-ds-AnT">
                                 <rect key="frame" x="0.0" y="54.333333333333336" width="83" height="21.666666666666664"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="lYo-ds-AnT" firstAttribute="height" secondItem="9Kx-nA-tN8" secondAttribute="height" multiplier="20:50" id="lEE-MN-l6D"/>
+                            <constraint firstItem="rwj-xw-HJH" firstAttribute="height" secondItem="lYo-ds-AnT" secondAttribute="height" multiplier="50:20" id="JgP-AW-YjE"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -47,10 +50,18 @@
             </constraints>
             <size key="customSize" width="83" height="76"/>
             <connections>
+                <outlet property="animationLotte" destination="rwj-xw-HJH" id="EKF-2B-Pce"/>
                 <outlet property="sportName" destination="lYo-ds-AnT" id="D0c-Vd-igD"/>
-                <outlet property="sportsImageView" destination="9Kx-nA-tN8" id="aSA-VS-9cF"/>
             </connections>
             <point key="canvasLocation" x="-6.8702290076335872" y="28.87323943661972"/>
         </collectionViewCell>
     </objects>
+    <designables>
+        <designable name="rwj-xw-HJH"/>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

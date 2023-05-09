@@ -5,11 +5,13 @@
 
 import UIKit
 import SwiftUI
+import Lottie
 
 class CustomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var sportsImageView: UIImageView!
     
+    @IBOutlet weak var animationLotte: AnimationView!
     @IBOutlet weak var sportName: UILabel!
     
     override func awakeFromNib() {

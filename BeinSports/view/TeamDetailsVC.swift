@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class TeamDetailsVC: UIViewController {
     var fromNetwork = false
     var team : Teams?

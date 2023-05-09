@@ -8,6 +8,7 @@ target 'BeinSports' do
   pod 'SDWebImage', '~> 5.0'
   pod 'lottie-ios'
   pod 'ReachabilitySwift'
+  pod 'Kingfisher', '~> 7.0'
   # Pods for BeinSports
  
   

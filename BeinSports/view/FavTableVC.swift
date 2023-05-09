@@ -7,7 +7,7 @@
 
 import UIKit
 import Alamofire
-import SDWebImage
+
 class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searcgBar: UISearchBar!

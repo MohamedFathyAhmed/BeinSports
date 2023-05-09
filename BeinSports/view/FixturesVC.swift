@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import AVKit
 import AVFoundation
-
+import SDWebImage
 class FixturesVC: UIViewController {
     @IBOutlet weak var eventCollection: UICollectionView!
     @IBOutlet weak var teamsCollection: UICollectionView!

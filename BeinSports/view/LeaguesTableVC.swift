@@ -7,7 +7,7 @@
 
 import UIKit
 import Alamofire
-import SDWebImage
+
 class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let imageView = UIImageView(image: UIImage(named: "noresult2"))
     @IBOutlet weak var tableView: UITableView!
@@ -39,41 +39,50 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     // MARK: - Table view data source
 
      func numberOfSections(in tableView: UITableView) -> Int {
-       return 1
+         if(searchActive){
+             return filtered.count
+         }else{
+            return arrLeagues.count
+         }
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(searchActive){
-            return filtered.count
-        }else{
-           return arrLeagues.count
-        }
-        
+      
+       return 1
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 1
+        }
+       
+        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let v = UIView()
+            v.backgroundColor = UIColor.clear
+            return v;
+        }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          var data = Result()
          if(searchActive){
-            data = filtered [indexPath.row]
+            data = filtered [indexPath.section]
          }else{
-             data = arrLeagues [indexPath.row]
+             data = arrLeagues [indexPath.section]
          }
          
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
         cell.countryLabel.text = data.country_name
         cell.nameLabel.text = data.league_name
-        
-        cell.imgView.sd_setImage(with: URL(string: data.league_logo ?? ""), placeholderImage: UIImage(named: sport))
+         cell.imgView.downloadImage(url: data.league_logo, placeHolder: UIImage(named: sport))
+       // cell.imgView.sd_setImage(with: URL(string: data.league_logo ?? ""), placeholderImage: UIImage(named: sport))
         return cell
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          var data = Result()
          if(searchActive){
-            data = filtered [indexPath.row]
+            data = filtered [indexPath.section]
          }else{
-             data = arrLeagues [indexPath.row]
+             data = arrLeagues [indexPath.section]
          }
          
         let vc = storyboard?.instantiateViewController(withIdentifier: "FixturesVC" ) as! FixturesVC

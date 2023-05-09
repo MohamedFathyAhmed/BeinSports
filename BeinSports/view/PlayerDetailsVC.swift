@@ -183,9 +183,11 @@ extension PlayerDetailsVC : ProtocolPlayerDetailsVC{
         
         self.teamNameLab.text=self.player?.player_name
         if(sport == "tennis"){
-            self.teamImg.sd_setImage(with: URL(string: self.player?.player_logo ?? ""), placeholderImage: UIImage(named: self.sport))
+            self.teamImg.downloadImage(url: self.player?.player_logo, placeHolder: UIImage(named: self.sport))
+          //  self.teamImg.sd_setImage(with: URL(string: self.player?.player_logo ?? ""), placeholderImage: UIImage(named: self.sport))
         }else{
-            self.teamImg.sd_setImage(with: URL(string: self.player?.player_image ?? ""), placeholderImage: UIImage(named: self.sport))
+            self.teamImg.downloadImage(url: self.player?.player_image, placeHolder: UIImage(named: self.sport))
+         //   self.teamImg.sd_setImage(with: URL(string: self.player?.player_image ?? ""), placeholderImage: UIImage(named: self.sport))
         }
        
         if( protocolVar?.isFav(key: player!.player_key!) ?? false){

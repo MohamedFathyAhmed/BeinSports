@@ -16,6 +16,10 @@ class HomeVC: UIViewController {
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
 
 
 }
@@ -38,12 +42,12 @@ extension HomeVC:UICollectionViewDataSource ,UICollectionViewDelegate ,UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
        cell.sportName.text=sports[indexPath.row]
        cell.sportName.textColor = .black
-       cell.sportsImageView.image = UIImage(named: sports[indexPath.row])
-        return cell
+       cell.animationLotte.setUpMyView(name: sports[indexPath.row])
+       return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 2) - 10, height: (collectionView.frame.height / 2) - 10)
+        return CGSize(width: (collectionView.frame.width / 2) - 1 , height: (collectionView.frame.height / 2) - 5 )
     }
     
     
