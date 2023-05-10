@@ -26,7 +26,7 @@ class PresenterLeaguesTableVC {
     
     func getLeagues(sport:String){
         let param : [String: String] = ["met": "Leagues"]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: ResultsResult?, error) in
+        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) {   (dataurl: ResultsResult?, error) in
             self.protocolVar?.getLeagues(resultsResult: dataurl)
         }
     }

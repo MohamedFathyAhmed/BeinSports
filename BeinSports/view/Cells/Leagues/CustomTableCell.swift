@@ -22,7 +22,15 @@ class CustomTableCell: UITableViewCell {
         
     
         view.layer.cornerRadius = 20
-        view.layer.borderColor = Color.accentColor.cgColor
+        
+        switch traitCollection.userInterfaceStyle{
+        case .dark:
+            view.layer.borderColor = Color.white.cgColor
+        default:
+            view.layer.borderColor = Color.black.cgColor
+        }
+
+        
         view.layer.borderWidth = 2
     }
 

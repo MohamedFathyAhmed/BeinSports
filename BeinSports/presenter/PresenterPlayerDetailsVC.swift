@@ -29,8 +29,8 @@ class PresenterPlayerDetailsVC {
 
     func callPlayerApi(sport :String,playerId :String) {
         let param : [String: String] = ["met": "Players","playerId": playerId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: PlayerResult?, error) in
-            self.protocolVar?.getPlayerApi(playerResult: dataurl)
+        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { [weak self] (dataurl: PlayerResult?, error) in
+            self?.protocolVar?.getPlayerApi(playerResult: dataurl)
 
                }
              }

@@ -18,8 +18,18 @@ class CustomCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         self.layer.cornerRadius = 20
-        self.layer.borderColor = Color.accentColor.cgColor
-        self.layer.borderWidth = 2
+       self.layer.borderWidth = 2
+        
+        
+        switch traitCollection.userInterfaceStyle{
+        case .dark:
+            self.layer.borderColor = Color.white.cgColor
+        default:
+            self.layer.borderColor = Color.black.cgColor
+        }
+        
     }
+    
+    
 
 }

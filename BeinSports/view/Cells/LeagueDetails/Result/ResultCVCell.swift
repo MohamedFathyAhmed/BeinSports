@@ -25,7 +25,12 @@ class ResultCVCell: UICollectionViewCell {
 
         view.layer.borderWidth = 1.5
    
-        
+        switch traitCollection.userInterfaceStyle{
+        case .dark:
+            view.layer.borderColor = Color.white.cgColor
+        default:
+            view.layer.borderColor = Color.black.cgColor
+        }
         // Initialization code
     }
 

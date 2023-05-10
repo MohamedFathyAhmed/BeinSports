@@ -35,17 +35,17 @@ class PresenterFixturesTableVC {
 
   
         let param : [String: String] = ["met": "Fixtures","from":from,"to":to ,"leagueId":leagueId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: EventsResult?, error) in
+        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { [weak self] (dataurl: EventsResult?, error) in
             
-            self.protocolVar?.getEventApi(eventsResult: dataurl)
+            self?.protocolVar?.getEventApi(eventsResult: dataurl)
                }
  
              }
 
     func callResultApi(sport :String,leagueId:String = "") {
         let param : [String: String] = ["met": "Livescore","leagueId":leagueId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: ResultsResult?, error) in
-            self.protocolVar?.getResultApi(resultsResult: dataurl)
+        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) {  [weak self] (dataurl: ResultsResult?, error) in
+            self?.protocolVar?.getResultApi(resultsResult: dataurl)
                }
  
              }
@@ -53,8 +53,8 @@ class PresenterFixturesTableVC {
     
     func callTeamApi(sport :String,leagueId:String ) {
         let param : [String: String] = ["met": "Teams","leagueId":leagueId]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: TeamsResult?, error) in
-            self.protocolVar?.getTeamApi(teamsResult: dataurl)
+        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) {  [weak self] (dataurl: TeamsResult?, error) in
+            self?.protocolVar?.getTeamApi(teamsResult: dataurl)
                }
  
              }
@@ -63,8 +63,8 @@ class PresenterFixturesTableVC {
         let event = String(describing: eventId)
         
         let param : [String: String] = ["met": "Videos","eventId":event]
-        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) { (dataurl: videoResult?, error) in
-            self.protocolVar?.getHighlightApi(videoResult: dataurl)
+        APIServices.instance.getDataAll(route: .typy(sport), method: .get, params: param, encoding: URLEncoding.default, headers: nil) {  [weak self] (dataurl: videoResult?, error) in
+            self?.protocolVar?.getHighlightApi(videoResult: dataurl)
                }
              }
 

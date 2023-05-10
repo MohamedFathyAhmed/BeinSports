@@ -28,7 +28,7 @@ class Utls {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.locale = Locale(identifier: "en_US")
         let calendar = Calendar.current
-        let newDate = calendar.date(byAdding: .day, value: 30, to: date)
+        let newDate = calendar.date(byAdding: .day, value: 14, to: date)
 
        return dateFormatter.string(from: newDate!)
     }
