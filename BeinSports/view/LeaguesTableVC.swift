@@ -39,16 +39,17 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     // MARK: - Table view data source
 
      func numberOfSections(in tableView: UITableView) -> Int {
+
+         return 1
+    }
+
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          if(searchActive){
              return filtered.count
          }else{
             return arrLeagues.count
          }
-    }
-
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
-       return 1
+   
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -64,9 +65,9 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          var data = Result()
          if(searchActive){
-            data = filtered [indexPath.section]
+            data = filtered [indexPath.row]
          }else{
-             data = arrLeagues [indexPath.section]
+             data = arrLeagues [indexPath.row]
          }
          
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
@@ -80,9 +81,9 @@ class LeaguesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          var data = Result()
          if(searchActive){
-            data = filtered [indexPath.section]
+            data = filtered [indexPath.row]
          }else{
-             data = arrLeagues [indexPath.section]
+             data = arrLeagues [indexPath.row]
          }
          
         let vc = storyboard?.instantiateViewController(withIdentifier: "FixturesVC" ) as! FixturesVC
@@ -151,6 +152,7 @@ extension LeaguesTableVC : ProtocolLeaguesTableVC{
         DispatchQueue.main.async {
             if(self.arrLeagues.count == 0){
                 self.imageView.contentMode = .scaleAspectFit
+                
                 self.tableView.backgroundView = self.imageView
             }else{
                 self.tableView.backgroundView = .none

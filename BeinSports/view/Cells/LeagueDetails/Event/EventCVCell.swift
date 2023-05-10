@@ -7,6 +7,7 @@ import SwiftUI
 
 class EventCVCell: UICollectionViewCell {
 
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var awayImageE: UIImageView!
     @IBOutlet weak var nameAwayLab: UILabel!
     @IBOutlet weak var nameHomeLab: UILabel!
@@ -15,7 +16,11 @@ class EventCVCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 20
+
+        view.layer.cornerRadius = 20
+        view.layer.borderWidth = 1.5
+   
+
 //        awayImageE.layer.cornerRadius = awayImageE.frame.height/2
 //        homeImageE.layer.cornerRadius = homeImageE.frame.height/2
 //        homeImageE.layer.borderColor = Color.accentColor.cgColor

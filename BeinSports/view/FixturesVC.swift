@@ -41,8 +41,8 @@ class FixturesVC: UIViewController {
         protocolVar = PresenterFixturesTableVC(protocolVar: self)
         
         registerCells()
-        protocolVar?.callEventApi(sport: sport,leagueId: leagueId)
-        protocolVar?.callResultApi(sport: sport,leagueId: leagueId)
+        protocolVar?.callEventApi(sport: sport)
+        protocolVar?.callResultApi(sport: sport)
         protocolVar?.callTeamApi(sport: sport,leagueId: leagueId)
     }
     

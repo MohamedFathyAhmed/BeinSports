@@ -8,7 +8,8 @@ import Lottie
 
 class CustomTableCell: UITableViewCell {
 
-   
+    @IBOutlet weak var view: UIView!
+    
    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
@@ -18,11 +19,11 @@ class CustomTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         imgView.layer.cornerRadius = imgView.frame.height/2
-        self.layer.cornerRadius = self.frame.height/2
         
-        
-        self.layer.borderColor = Color.accentColor.cgColor
-        self.layer.borderWidth = 2
+    
+        view.layer.cornerRadius = 20
+        view.layer.borderColor = Color.accentColor.cgColor
+        view.layer.borderWidth = 2
     }
 
 
