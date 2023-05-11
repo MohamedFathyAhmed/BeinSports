@@ -18,9 +18,9 @@ class CustomTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        imgView.layer.cornerRadius = imgView.frame.height/2
+       // imgView.layer.cornerRadius = imgView.frame.height/2
         
-    
+        imgView.layer.cornerRadius = 50
         view.layer.cornerRadius = 20
         
         switch traitCollection.userInterfaceStyle{

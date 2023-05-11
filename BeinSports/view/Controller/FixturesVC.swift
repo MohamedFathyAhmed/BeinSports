@@ -11,6 +11,7 @@ import AVKit
 import AVFoundation
 import SDWebImage
 class FixturesVC: UIViewController {
+    @IBOutlet weak var labTeam: UILabel!
     @IBOutlet weak var eventCollection: UICollectionView!
     @IBOutlet weak var teamsCollection: UICollectionView!
     @IBOutlet weak var resultsCollection: UICollectionView!
@@ -41,8 +42,8 @@ class FixturesVC: UIViewController {
         protocolVar = PresenterFixturesTableVC(protocolVar: self)
         
         registerCells()
-        protocolVar?.callEventApi(sport: sport)
-        protocolVar?.callResultApi(sport: sport)
+        protocolVar?.callEventApi(sport: sport,leagueId: leagueId)
+        protocolVar?.callResultApi(sport: sport,leagueId: leagueId)
         protocolVar?.callTeamApi(sport: sport,leagueId: leagueId)
     }
     
@@ -68,8 +69,10 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
                 if(arrTennisPlayer.count != 0){
                     self.teamsCollection.backgroundView = .none
                 }
+                labTeam.text = "Players"
                 return arrTennisPlayer.count
             }else{
+                labTeam.text = "Teams"
                 return arrTeams.count
             }
         default: return 0

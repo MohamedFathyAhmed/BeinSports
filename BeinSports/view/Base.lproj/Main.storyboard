@@ -221,6 +221,7 @@
                     <navigationItem key="navigationItem" id="Ajm-ej-kXF"/>
                     <connections>
                         <outlet property="eventCollection" destination="eAW-hu-xUO" id="UAL-yH-VFs"/>
+                        <outlet property="labTeam" destination="bRG-5M-7fj" id="8jK-mK-yus"/>
                         <outlet property="resultsCollection" destination="FBo-oS-6Xg" id="pzB-VI-BG5"/>
                         <outlet property="teamsCollection" destination="xBK-7d-CAd" id="ja5-qT-Qlr"/>
                         <segue destination="DjI-Nm-T7q" kind="show" id="X6l-v2-Gu9"/>

@@ -7,11 +7,15 @@
 
 import UIKit
 import Lottie
+
+import AVFoundation
+
+
 class LauchScreenVC: UIViewController {
 
     @IBOutlet weak var Animationview: AnimationView!
     var timer = Timer()
-
+    var audioPlayer : AVAudioPlayer!
     override func viewDidLoad() {
 
       super.viewDidLoad()
@@ -31,7 +35,7 @@ class LauchScreenVC: UIViewController {
       // 4. Play animation
         Animationview.play()
         //updateTimer is obj c not swift
-       
+        playSound(soundName: "whistle")
         timer = Timer.scheduledTimer(timeInterval: 3.0, target:self, selector: #selector(updateTimer), userInfo:nil, repeats: false)
         
     }
@@ -42,6 +46,16 @@ class LauchScreenVC: UIViewController {
         vc.modalPresentationStyle = .fullScreen
 
         present (vc, animated : true )
+    }
+    
+    
+    func playSound(soundName:String) {
+        
+        let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: soundURL!)
+        
+        audioPlayer.play()
     }
 
 }

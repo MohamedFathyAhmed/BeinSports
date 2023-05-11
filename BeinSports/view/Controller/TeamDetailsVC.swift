@@ -80,7 +80,8 @@ extension TeamDetailsVC:UITableViewDelegate,UITableViewDataSource{
  
         cell.namePlayer.text = arrPlayers?[indexPath.row].player_name
         cell.numberPlayer.text = arrPlayers?[indexPath.row].player_number
-        cell.img.sd_setImage(with: URL(string: arrPlayers?[indexPath.row].player_image ?? ""), placeholderImage: UIImage(named: sport))
+        cell.img.downloadImage(url: arrPlayers?[indexPath.row].player_image, placeHolder:  UIImage(named: sport))
+       // cell.img.sd_setImage(with: URL(string: arrPlayers?[indexPath.row].player_image ?? ""), placeholderImage: UIImage(named: sport))
         return cell
     }
     

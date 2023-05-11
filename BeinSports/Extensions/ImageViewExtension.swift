@@ -23,7 +23,7 @@ extension UIImageView{
             options: [
             .processor(processor) ,
             .scaleFactor(UIScreen.main.scale),
-            .transition(.fade(0.5)) ,
+            .transition(.fade(1)) ,
             .cacheOriginalImage ,
         ]
     )

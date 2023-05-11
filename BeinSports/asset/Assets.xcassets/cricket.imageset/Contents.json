@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "39-398723_cricket-png-transparent-transparent-cricket-logo-png.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "cricket.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

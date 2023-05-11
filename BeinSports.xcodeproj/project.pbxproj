@@ -65,6 +65,7 @@
 		14FDF9002A0ABEB200BC87FE /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDF8FF2A0ABEB200BC87FE /* ImageViewExtension.swift */; };
 		14FDF9022A0ABEBB00BC87FE /* LottieAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDF9012A0ABEBB00BC87FE /* LottieAnimationExtension.swift */; };
 		14FF60502A0C168B008F5FD8 /* TestCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF604F2A0C168B008F5FD8 /* TestCoreData.swift */; };
+		14FF60532A0C39E3008F5FD8 /* whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14FF60522A0C39E3008F5FD8 /* whistle.mp3 */; };
 		1787117B165E962D1EF80655 /* Pods_BeinSports_BeinSportsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864DC6021E235C46E0072B90 /* Pods_BeinSports_BeinSportsUITests.framework */; };
 		AFB1D6CBE652C82217172DC0 /* Pods_BeinSports.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CCED2757D38C0D5B079CDE /* Pods_BeinSports.framework */; };
 /* End PBXBuildFile section */
@@ -149,6 +150,7 @@
 		14FDF8FF2A0ABEB200BC87FE /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		14FDF9012A0ABEBB00BC87FE /* LottieAnimationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimationExtension.swift; sourceTree = "<group>"; };
 		14FF604F2A0C168B008F5FD8 /* TestCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreData.swift; sourceTree = "<group>"; };
+		14FF60522A0C39E3008F5FD8 /* whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whistle.mp3; sourceTree = "<group>"; };
 		357C8525278F400EE3B39515 /* Pods-BeinSports.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeinSports.release.xcconfig"; path = "Target Support Files/Pods-BeinSports/Pods-BeinSports.release.xcconfig"; sourceTree = "<group>"; };
 		36CCED2757D38C0D5B079CDE /* Pods_BeinSports.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeinSports.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864DC6021E235C46E0072B90 /* Pods_BeinSports_BeinSportsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeinSports_BeinSportsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +327,7 @@
 		14970D7C2A014D95003951D9 /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				14FF60522A0C39E3008F5FD8 /* whistle.mp3 */,
 				148D83E62A0ACAA200C4CA73 /* cricket.json */,
 				148D83E42A0AC9BE00C4CA73 /* basketball.json */,
 				148D83E22A0AC99300C4CA73 /* tennis.json */,
@@ -405,12 +408,12 @@
 		14FF60512A0C1A9C008F5FD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14970D7A2A014A56003951D9 /* LauchScreenVC.swift */,
 				149FAEB829FFED7200A9C741 /* HomeVC.swift */,
 				1492A0212A011F520024D71E /* LeaguesTableVC.swift */,
+				14ECCE9D2A0193AE000F9C03 /* FixturesVC.swift */,
 				14A0F44D2A031FE3002C37CC /* TeamDetailsVC.swift */,
 				14A2E39F2A06B84A00C7CA63 /* PlayerDetailsVC.swift */,
-				14ECCE9D2A0193AE000F9C03 /* FixturesVC.swift */,
-				14970D7A2A014A56003951D9 /* LauchScreenVC.swift */,
 				147551992A05EA0700436D74 /* FavTableVC.swift */,
 			);
 			path = Controller;
@@ -553,6 +556,7 @@
 				148D83E12A0AC8A000C4CA73 /* football.json in Resources */,
 				1492A0152A0079150024D71E /* ResultCVCell.xib in Resources */,
 				1468DC8F2A09285400B0DE73 /* splash.json in Resources */,
+				14FF60532A0C39E3008F5FD8 /* whistle.mp3 in Resources */,
 				1492A01B2A0079150024D71E /* CustomTableCell.xib in Resources */,
 				149FAEC129FFED7400A9C741 /* Assets.xcassets in Resources */,
 				1492A01A2A0079150024D71E /* EventCVCell.xib in Resources */,
