@@ -59,6 +59,7 @@
 		14A2E3A02A06B84A00C7CA63 /* PlayerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2E39F2A06B84A00C7CA63 /* PlayerDetailsVC.swift */; };
 		14A2E3A32A06E1F400C7CA63 /* Utls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2E3A22A06E1F400C7CA63 /* Utls.swift */; };
 		14A2E3A52A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2E3A42A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift */; };
+		14B1C44F2A0D720400749958 /* testPresenterBasketball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1C44E2A0D720400749958 /* testPresenterBasketball.swift */; };
 		14D667032A09B4210076EF63 /* UnitTestingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D667022A09B4210076EF63 /* UnitTestingNetwork.swift */; };
 		14D667052A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D667042A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift */; };
 		14ECCE9E2A0193AE000F9C03 /* FixturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECCE9D2A0193AE000F9C03 /* FixturesVC.swift */; };
@@ -144,6 +145,7 @@
 		14A2E39F2A06B84A00C7CA63 /* PlayerDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsVC.swift; sourceTree = "<group>"; };
 		14A2E3A22A06E1F400C7CA63 /* Utls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utls.swift; sourceTree = "<group>"; };
 		14A2E3A42A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterPlayerDetailsVC.swift; sourceTree = "<group>"; };
+		14B1C44E2A0D720400749958 /* testPresenterBasketball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPresenterBasketball.swift; sourceTree = "<group>"; };
 		14D667022A09B4210076EF63 /* UnitTestingNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestingNetwork.swift; sourceTree = "<group>"; };
 		14D667042A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPresenterFixturesTableVC.swift; sourceTree = "<group>"; };
 		14ECCE9D2A0193AE000F9C03 /* FixturesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesVC.swift; sourceTree = "<group>"; };
@@ -377,12 +379,12 @@
 		149FAECD29FFED7400A9C741 /* BeinSportsTests */ = {
 			isa = PBXGroup;
 			children = (
+				14B1C44D2A0D71D300749958 /* Mock */,
 				14D667042A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift */,
 				14D667022A09B4210076EF63 /* UnitTestingNetwork.swift */,
 				149FAECE29FFED7400A9C741 /* BeinSportsTests.swift */,
-				1468DCA12A09AF7400B0DE73 /* MockNetworkManagerTests.swift */,
-				1468DCA02A09AF7400B0DE73 /* MockNetworkManager.swift */,
 				14FF604F2A0C168B008F5FD8 /* TestCoreData.swift */,
+				14B1C44E2A0D720400749958 /* testPresenterBasketball.swift */,
 			);
 			path = BeinSportsTests;
 			sourceTree = "<group>";
@@ -403,6 +405,15 @@
 				14A0F4532A0328F4002C37CC /* PlayersTableCell.xib */,
 			);
 			path = player;
+			sourceTree = "<group>";
+		};
+		14B1C44D2A0D71D300749958 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1468DCA02A09AF7400B0DE73 /* MockNetworkManager.swift */,
+				1468DCA12A09AF7400B0DE73 /* MockNetworkManagerTests.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		14FF60512A0C1A9C008F5FD8 /* Controller */ = {
@@ -735,6 +746,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B1C44F2A0D720400749958 /* testPresenterBasketball.swift in Sources */,
 				14FF60502A0C168B008F5FD8 /* TestCoreData.swift in Sources */,
 				1468DCA32A09AF7400B0DE73 /* MockNetworkManagerTests.swift in Sources */,
 				14D667052A09B7DE0076EF63 /* testPresenterFixturesTableVC.swift in Sources */,
@@ -968,6 +980,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PARRY5PM9L;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -988,6 +1001,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PARRY5PM9L;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
