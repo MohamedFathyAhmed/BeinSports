@@ -10,6 +10,7 @@ import Alamofire
 import AVKit
 import AVFoundation
 import SDWebImage
+import ReachabilitySwift
 class FixturesVC: UIViewController {
     @IBOutlet weak var labTeam: UILabel!
     @IBOutlet weak var eventCollection: UICollectionView!
@@ -287,5 +288,35 @@ extension FixturesVC : ProtocolFixturesVC{
                }
     }
     
+    
+}
+
+extension FixturesVC:  NetworkStatusListener{
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ReachabilityManager.shared.addListener(listener: self)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ReachabilityManager.shared.removeListener(listener: self)
+    }
+  
+    func networkStatusDidChange(status: Reachability.NetworkStatus) {
+        switch status {
+             case .notReachable:
+                 debugPrint("ViewController: Network became unreachable")
+            DispatchQueue.main.async {
+                Utls.showToast(view: self.view, text: "offline")
+            }
+             case .reachableViaWiFi , .reachableViaWWAN:
+                 debugPrint("ViewController: Network reachable through WiFi")
+            DispatchQueue.main.async {
+                Utls.showToast(view: self.view, text: "online")
+            }
+       
+             }
+         }
+  
     
 }

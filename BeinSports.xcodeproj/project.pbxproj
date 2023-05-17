@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0910BE0CD6E6FB93B2DAD38B /* Pods_BeinSportsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AF4F9578F8169832A43F27 /* Pods_BeinSportsTests.framework */; };
+		14293BE92A14DE5B00162E89 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14293BE82A14DE5B00162E89 /* ReachabilityManager.swift */; };
 		1457F23129FFF435005FC048 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457F23029FFF435005FC048 /* APIServices.swift */; };
 		1457F2352A00003F005FC048 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457F2342A00003F005FC048 /* Model.swift */; };
 		1468DC8D2A08720D00B0DE73 /* PresenterFavTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468DC8C2A08720D00B0DE73 /* PresenterFavTableVC.swift */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		0CAA3BF19EEAB2EBADCB32CD /* Pods-BeinSports-BeinSportsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeinSports-BeinSportsUITests.release.xcconfig"; path = "Target Support Files/Pods-BeinSports-BeinSportsUITests/Pods-BeinSports-BeinSportsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		14293BE82A14DE5B00162E89 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		1457F23029FFF435005FC048 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		1457F2342A00003F005FC048 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1468DC8C2A08720D00B0DE73 /* PresenterFavTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterFavTableVC.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		14929FFA2A0074BA0024D71E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				14293BE82A14DE5B00162E89 /* ReachabilityManager.swift */,
 				14A2E3A22A06E1F400C7CA63 /* Utls.swift */,
 				14FDF8FF2A0ABEB200BC87FE /* ImageViewExtension.swift */,
 				14FDF9012A0ABEBB00BC87FE /* LottieAnimationExtension.swift */,
@@ -708,6 +711,7 @@
 				14A0F4542A0328F4002C37CC /* PlayersTableCell.swift in Sources */,
 				14929FFF2A0074BA0024D71E /* UIView+Extension.swift in Sources */,
 				14A2E3A52A070C1300C7CA63 /* PresenterPlayerDetailsVC.swift in Sources */,
+				14293BE92A14DE5B00162E89 /* ReachabilityManager.swift in Sources */,
 				14ECCE9E2A0193AE000F9C03 /* FixturesVC.swift in Sources */,
 				147551962A05E4B200436D74 /* CoreData.swift in Sources */,
 				1475519A2A05EA0700436D74 /* FavTableVC.swift in Sources */,

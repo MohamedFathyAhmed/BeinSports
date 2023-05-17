@@ -84,5 +84,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1ABC650-E6FF-4C50-BF4D-AC5F3166374D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeinSports/view/Controller/LeaguesTableVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "networkStatusDidChange(status:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F1ABC650-E6FF-4C50-BF4D-AC5F3166374D - f3ae9bd527d98b6c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.LeaguesTableVC.networkStatusDidChange(status: ReachabilitySwift.Reachability.NetworkStatus) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/Controller/LeaguesTableVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "197">
+               </Location>
+               <Location
+                  uuid = "F1ABC650-E6FF-4C50-BF4D-AC5F3166374D - f3ae9bd527d98b4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeinSports.LeaguesTableVC.networkStatusDidChange(status: ReachabilitySwift.Reachability.NetworkStatus) -&gt; ()"
+                  moduleName = "BeinSports"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mo_fathy/Documents/GitHub/BeinSports/BeinSports/view/Controller/LeaguesTableVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

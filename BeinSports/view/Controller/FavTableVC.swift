@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import ReachabilitySwift
 
 class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -29,14 +30,7 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
       
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        searchActive=false
-        tableView.reloadData()
-        arrTeams = (protocolVar?.getTeams())!
-        arrPlayers = (protocolVar?.getPlayers())!
-        tableView.reloadData()
-    }
-
+  
     // MARK: - Table view data source
 
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,14 +49,12 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          switch section{
          case 0 :
-             
              if(arrTeams.count == 0 && arrPlayers.count == 0 ){
                  imageView.contentMode = .scaleAspectFit
                  tableView.backgroundView = imageView
              }else{
                  tableView.backgroundView = .none
              }
-             
              if(searchActive){
                 return filteredTeams.count
             }else{
@@ -77,14 +69,11 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
          default:
              return 0
          }
-       
-        
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
-         
          switch indexPath.section{
          case 0 :
              var data :DBTeam?
@@ -93,7 +82,6 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
              }else{
                  data = arrTeams [indexPath.row]
              }
-             
            cell.countryLabel.text = data?.sport
              cell.nameLabel.text = data?.name
              cell.imgView.sd_setImage(with: URL(string: data?.logo ?? ""), placeholderImage: UIImage(named: data?.sport ?? "placeholder"))
@@ -129,7 +117,8 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
                     self.protocolVar!.deleteTeam(data: data!)
                     self.arrTeams.remove(at: indexPath.row)
-                    tableView.reloadData()
+                    self.tableView.deleteRows(at: [indexPath], with:.fade)
+                //    tableView.reloadData()
                 }
 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -153,27 +142,20 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
                     self.protocolVar!.deletePlayer( data: data!)
                     self.arrPlayers.remove(at: indexPath.row)
-                    tableView.reloadData()
+                    self.tableView.deleteRows(at: [indexPath], with:.fade)
+                   // tableView.reloadData()
                 }
 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                  
                 }
-
                 alertController.addAction(deleteAction)
                 alertController.addAction(cancelAction)
 
                 self.present(alertController, animated: true, completion: nil)
-               
-               
             }
-            
-        
-
             completionHandler(true)
         }
         deleteAction.backgroundColor = .red
-
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = true
         return configuration
@@ -190,12 +172,10 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
              }else{
                  data = arrTeams [indexPath.row]
              }
-             
              let vc = storyboard?.instantiateViewController(withIdentifier: "TeamDetailsVC" ) as! TeamDetailsVC
              vc.fromNetwork = true
              vc.sport=data?.sport ?? ""
              vc.teamId = String(describing: data!.key)
-           
              navigationController? .pushViewController(vc , animated : true )
          default:
              var data :DBPlayer?
@@ -204,14 +184,11 @@ class FavTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
              }else{
                  data = arrPlayers [indexPath.row]
              }
-             
              let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerDetailsVC" ) as! PlayerDetailsVC
              vc.fromNetwork = true
              vc.sport = data?.sport ?? ""
              vc.playerId = String(describing: data!.key)
-             
              navigationController? .pushViewController(vc , animated : true )
-
          }
     }
     
@@ -260,6 +237,41 @@ extension FavTableVC :UISearchBarDelegate{
 }
 extension FavTableVC :ProtocolFavTableVC {
     
+    
+}
+
+extension FavTableVC:  NetworkStatusListener{
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchActive=false
+        tableView.reloadData()
+        arrTeams = (protocolVar?.getTeams())!
+        arrPlayers = (protocolVar?.getPlayers())!
+        tableView.reloadData()
+        ReachabilityManager.shared.addListener(listener: self)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ReachabilityManager.shared.removeListener(listener: self)
+    }
+  
+    func networkStatusDidChange(status: Reachability.NetworkStatus) {
+        switch status {
+             case .notReachable:
+                 debugPrint("ViewController: Network became unreachable")
+            DispatchQueue.main.async {
+                Utls.showToast(view: self.view, text: "offline")
+            }
+             case .reachableViaWiFi , .reachableViaWWAN:
+                 debugPrint("ViewController: Network reachable through WiFi")
+            DispatchQueue.main.async {
+                Utls.showToast(view: self.view, text: "online")
+            }
+       
+             }
+         }
+  
     
 }
 
