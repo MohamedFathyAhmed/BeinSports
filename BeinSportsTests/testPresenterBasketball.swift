@@ -77,7 +77,7 @@ extension testPresenterBasketball : ProtocolFixturesVC {
             expectation!.fulfill()
             return
         }
-        XCTAssertNotEqual(data.result.count, 0, "API Failed")
+        XCTAssertNotEqual(data.result?.count, 0, "API Failed")
         expectation!.fulfill()
     }
     

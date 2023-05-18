@@ -133,7 +133,7 @@ struct Result: Codable {
 
 struct videoResult: Codable {
     var success: Int
-    var result: [video]
+    var result: [video]?
 }
 
 struct video: Codable {

@@ -11,7 +11,7 @@ import Alamofire
 //MARK: - Route
 enum Route {
     static let baseUrl = "https://apiv2.allsportsapi.com"
-    static let APIkey = "2cdee77a4a65bc36ba2b0114ae157d4c8bfc08a21d4a0762c8169996b2924744"
+    static let APIkey = "0df59959bd9a6774249a8b63461722627915ee8b74bcd5b3309d9d08f0c13087"
     //74239ff4b0776dba5295debe45f7691ae79a6ed3ce907cacb868ab9107212fd4
     //2cdee77a4a65bc36ba2b0114ae157d4c8bfc08a21d4a0762c8169996b2924744
     case typy(String)

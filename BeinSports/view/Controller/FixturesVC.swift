@@ -26,12 +26,20 @@ class FixturesVC: UIViewController {
     var arrResult=[Result]()
     var arrTeams=[Teams]()
     var arrTennisPlayer = [Player]()
-    
+    var networkIndicator = UIActivityIndicatorView(style: .large)
     var protocolVar : PresenterFixturesTableVC?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        networkIndicator.color = UIColor.gray
+        networkIndicator.center = view.center
+        networkIndicator.startAnimating()
+        view.addSubview(networkIndicator)
+        
+        
         if (!Utls.hasConnectivity()){
             let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { UIAlertAction in
@@ -43,8 +51,10 @@ class FixturesVC: UIViewController {
         protocolVar = PresenterFixturesTableVC(protocolVar: self)
         
         registerCells()
-        protocolVar?.callEventApi(sport: sport,leagueId: leagueId)
-        protocolVar?.callResultApi(sport: sport,leagueId: leagueId)
+//        protocolVar?.callEventApi(sport: sport,leagueId: leagueId)
+//        protocolVar?.callResultApi(sport: sport,leagueId: leagueId)
+        protocolVar?.callEventApi(sport: sport)
+        protocolVar?.callResultApi(sport: sport)
         protocolVar?.callTeamApi(sport: sport,leagueId: leagueId)
     }
     
@@ -165,9 +175,9 @@ extension FixturesVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
         case eventCollection: break
             
         case resultsCollection:
-          // break
-            //arrResult[indexPath.row].event_key ?? 0
-            protocolVar?.callHighlightApi(sport: sport )
+          
+           // let event_key = arrResult[indexPath.row].event_key ?? 1071557
+            protocolVar?.callHighlightApi(sport: sport)
             
         case teamsCollection:
             if(sport == "tennis"){
@@ -238,7 +248,8 @@ extension FixturesVC : ProtocolFixturesVC{
     
     func getEventApi(eventsResult: EventsResult?) {
         self.arrEvent=eventsResult?.result ?? [Event]()
-       
+        self.networkIndicator.stopAnimating ()
+    
         DispatchQueue.main.async {
             if(self.arrEvent.count == 0){
                 self.imageView.contentMode = .scaleAspectFit
@@ -284,6 +295,8 @@ extension FixturesVC : ProtocolFixturesVC{
                DispatchQueue.main.async {
                    if let videoURL = res.first?.video_url.asUrl{
                        self.playVideo(url:videoURL)
+                   }else{
+                       Utls.showToast(view: self.view, text: "No Highlight")
                    }
                }
     }

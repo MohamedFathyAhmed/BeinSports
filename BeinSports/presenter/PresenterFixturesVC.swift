@@ -59,7 +59,7 @@ class PresenterFixturesTableVC {
  
              }
     
-    func callHighlightApi(sport :String,eventId : Int = 1059523) {
+    func callHighlightApi(sport :String,eventId : Int = 1071557) {
         let event = String(describing: eventId)
         
         let param : [String: String] = ["met": "Videos","eventId":event]
